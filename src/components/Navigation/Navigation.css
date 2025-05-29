@@ -1,0 +1,28 @@
+.nav {
+  font-family: Roboto Slab;
+  font-weight: 700;
+  size: 20px;
+  line-height: 24px;
+  margin-left: 765px;
+}
+
+.nav__button {
+  width: 152px;
+  height: 24px;
+  top: 31px;
+  margin-left: 1172px;
+  border-radius: 1000px;
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__link {
+  width: 49px;
+  height: 24px;
+  font-size: 24px;
+  color: white;
+}

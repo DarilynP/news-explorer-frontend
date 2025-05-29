@@ -1,0 +1,46 @@
+.footer {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: grey;
+  margin: 0;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+.footer__home-button {
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 18px;
+  margin-left: 40px;
+}
+
+.logo__image-fb {
+  width: 24px;
+  height: 24px;
+  margin-left: 40px;
+  margin-top: 14px;
+}
+
+.logo__image-github {
+  width: 24px;
+  height: 24px;
+  /* margin-left: 20px; */
+  margin-top: 14px;
+
+}
+
+.footer__p {
+}
+
+.footer__tag {
+  color: black;
+  margin-left: 524px;
+}

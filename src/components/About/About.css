@@ -1,0 +1,34 @@
+.About {
+  display: flex;
+  justify-content: center;
+}
+
+.About__img {
+  width: 464px;
+  height: 464px;
+  border-radius: 1000px;
+}
+
+.About__Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.About__p {
+  margin-left: 56px;
+}
+
+.About__title {
+  text-align: center;
+}
+
+.About h2 {
+  width: 600px;
+  height: 46px;
+  font-family: Roboto Slab, serif;
+  font-size: 40px;
+  font-weight: 400;
+  align-items: center;
+  margin-top: 130px;
+}
