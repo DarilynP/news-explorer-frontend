@@ -3,7 +3,7 @@ import "./LoginModal.css";
 import "./ModalWithForm.css";
 import ModalWithForm from "../Modals/ModalWithForm";
 
-function LoginModal({ onSignIn, onClose, onSwitchToSignUp }) {
+function LoginModal({ onSignIn, onClose, onSwitchToSignUp , isModalOpen}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,12 +18,14 @@ function LoginModal({ onSignIn, onClose, onSwitchToSignUp }) {
 
   return (
     <ModalWithForm
+    isModalOpen={isModalOpen}
       title="Sign In"
       onClose={onClose}
       onSubmit={handleSubmit}
       onSwitchToSignUp={onSwitchToSignUp}
+      type="login"
     >
-      <label>
+      <label className="form__label">
         Email
         <input
           type="email"
@@ -36,7 +38,7 @@ function LoginModal({ onSignIn, onClose, onSwitchToSignUp }) {
           required
         />
       </label>
-      <label>
+      <label className="form__label">
         Password
         <input
           type="password"

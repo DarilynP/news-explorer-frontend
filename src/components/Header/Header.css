@@ -1,6 +1,4 @@
 .header {
-  /* width: 1440px;
-  height: 80px; */
   font-family: "Roboto", serif;
   font-weight: 700;
   font-size: 20px;
@@ -9,7 +7,9 @@
   display: flex;
   justify-content: space-between;
   z-index: 1000;
-  position:fixed;
+  position: absolute;
+  cursor: pointer;
+  background: url(../../assets/images/bg.png);
 }
 
 .header__title {
@@ -18,6 +18,7 @@
   color: white;
   font-size: 20px;
   margin-left: 100px;
+  margin-right: 400px;
 }
 
 .header__list {
@@ -38,7 +39,6 @@
   background-color: transparent;
   color: white;
   border: 1px solid white;
-  margin-left: 20px;
 }
 
 .header__button-home {
@@ -49,9 +49,199 @@
 }
 
 .header__container {
-  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 16px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.header__burger {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  width: 24px;
+  height: 24px;
+  display: none;
+  z-index: 1100;
+}
+
+.header__burger_hidden {
+  display: none !important;
+}
+
+.header__button-signin_saved-page {
+  border: 1px solid black;
+  color: black;
+  width: 112px;
+  height: 48px;
+}
+
+.header__button-avatar {
   display: flex;
   justify-content: center;
+
+  background-image: url(../../assets/images/logout.png);
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  border-radius: 1000px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  margin-left: 40px;
+  width: 172px;
+  height: 48px;
   align-items: center;
-  margin:0;
+}
+
+@media screen and (max-width: 627px) {
+  .header__container {
+    height: 56px;
+  }
+  .header__title {
+    margin: auto;
+  }
+  .header__button-avatar {
+    display: none;
+  }
+  /* .header .header__burger.header__burger_hidden {
+    display: none;
+  } */
+
+  .header__burger {
+    display: block;
+  }
+  .nav__link {
+    display: block;
+  }
+  /* Mobile nav menu (dropdown) */
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: black;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    z-index: 1000;
+  }
+
+  .nav.nav_open {
+    display: block;
+    background-color: rgba(26, 27, 34, 1);
+    width: 288px;
+    height: 230px;
+  }
+
+  .nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav__link {
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 0;
+  }
+
+  .header__button-avatar {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #df4300;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+  .header__button-avatar:not(.header__button-avatar--mobile) {
+    display: none;
+  }
+  .header__burger.modal-open {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 628px) and (max-width: 1024px) {
+  .header {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 0 16px;
+  }
+
+  .header__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px auto;
+    padding: 0 16px;
+    height: auto;
+  }
+
+  .header__title {
+    font-size: 18px;
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+  }
+
+  .header__list {
+    display: flex;
+    gap: 16px;
+    margin-left: auto;
+  }
+
+  .header__button-home,
+  .header__button-signin,
+  .header__button-avatar {
+    font-size: 16px;
+    width: auto;
+    height: 40px;
+  }
+
+  .header__button-avatar {
+    display: flex;
+    margin-left: 16px;
+    background-position: right 8px center;
+    padding: 0 30px;
+    font-size: 16px;
+  }
+
+  .header__burger {
+    display: none !important; /* Hide burger menu on tablet */
+  }
+
+  .nav {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .nav__link {
+    color: white;
+    font-size: 16px;
+    padding: 0;
+  }
 }

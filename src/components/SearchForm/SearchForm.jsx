@@ -1,32 +1,29 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import "./SearchForm.css";
 
+function SearchForm({ onSearchSubmit }) {
+  const [inputValue, setInputValue] = useState("");
 
-function SearchForm ({ onSearch }) {
-  const [ searchTerm ,setSearchTerm] =useState("");
-
-  function handleSubmit(e) {
-    e.preventDefault(); // Prevent form from refreshing the page
-    if (onSearch && searchTerm.trim()) {
-      onSearch(searchTerm.trim()); // Pass trimmed search term to parent
-    }
-  }
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearchSubmit(inputValue);
+  };
 
   return (
-    <form className="search-form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        className="search-form__input"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)} 
-        placeholder="Enter topic"
-      />
-        <button type="submit" className="search-form__button">
-        Search
-      </button>
-  
-    </form>
+    <div className="search__form-container">
+      <form className="search__form" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Search news..."
+          className="search__form-input"
+        />
+        <button className="search__form-button" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
   );
 }
 

@@ -3,26 +3,63 @@
   font-weight: 700;
   size: 20px;
   line-height: 24px;
-  margin-left: 765px;
+  display: none;
+  position: absolute;
 }
 
-.nav__button {
+/* .nav__button {
   width: 152px;
   height: 24px;
   top: 31px;
   margin-left: 1172px;
   border-radius: 1000px;
-}
+} */
 
 .nav__list {
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
 }
 
 .nav__link {
   width: 49px;
   height: 24px;
-  font-size: 24px;
+  font-size: 18px;
   color: white;
+}
+.nav.nav_open {
+  display: block;
+}
+
+.nav__link_saved {
+  margin-left: 76px;
+  white-space: nowrap;
+  width: 114px;
+  height: 24px;
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    background-color: transparent;
+    padding: 0;
+  }
+  .nav__list {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav_open {
+    display: block;
+  }
+
+  .header__burger {
+    display: none;
+  }
 }

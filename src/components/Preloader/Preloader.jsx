@@ -1,8 +1,18 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import "./Preloader.css";
+import preloader_image from "../../assets/images/preloader_img.png";
 
-function ProtectedRoute({ isLoggedIn, children }) {
-  return isLoggedIn ? children : <Navigate to="/" replace />;
-}
 
-export default ProtectedRoute;
+
+
+const Preloader = () => {
+  console.log("hey preloader");
+  return (
+    <div className="preloader">
+      <img src={preloader_image} alt="Loading" className="preloader__img" />
+      <div className="circle-preloader"></div>
+    </div>
+  );
+};
+
+export default Preloader;

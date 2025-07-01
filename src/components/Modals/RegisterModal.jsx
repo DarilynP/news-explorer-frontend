@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./RegisterModal.css";
 import ModalWithForm from "./ModalWithForm";
 
-function RegisterModal({ onClose, onSubmit  }) {
+function RegisterModal({ onClose, onSubmit , isModalOpen}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -14,7 +14,14 @@ function RegisterModal({ onClose, onSubmit  }) {
   };
 
   return (
-    <ModalWithForm title="Sign Up" onClose={onClose} onSubmit={handleSubmit}>
+    <ModalWithForm
+    isModalOpen={isModalOpen}
+      title="Sign Up"
+      onClose={onClose}
+      onSubmit={handleSubmit}
+      // className="modal__register"
+      type="register"
+    >
       <label className="modal__label">
         Email
         <input
