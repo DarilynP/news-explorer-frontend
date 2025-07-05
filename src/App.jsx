@@ -164,7 +164,7 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
-      <Router>
+     <Router basename="/news-explorer-frontend">
         <div className="app">
           <Routes>
             <Route
