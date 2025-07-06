@@ -159,12 +159,18 @@ function App() {
       }
     };
     console.log("this is firing when my app.jsx is mounted");
-    // fetchArticles();
+    fetchArticles();
   }, []);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
-     <Router basename="/news-explorer-frontend">
+      <Router
+        basename={
+          import.meta.env.MODE === "production"
+            ? "/news-explorer-frontend"
+            : "/"
+        }
+      >
         <div className="app">
           <Routes>
             <Route
