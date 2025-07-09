@@ -2,12 +2,11 @@
   position: fixed;
   width: 430px;
   height: 380px;
-  top: 207px;
-  left: 505px;
+  top: 50%;
+  left: 50%;
   background-color: white;
   border-radius: 16px;
   padding: 24px;
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); */
   border: 2px solid #ccc;
   box-sizing: border-box;
   z-index: 1000;
@@ -15,6 +14,7 @@
   flex-direction: column;
   gap: 16px;
   z-index: 1001;
+  transform: translate(-50%, -50%);
 }
 
 .modal input {
@@ -93,7 +93,13 @@ h2 {
   height: 483px;
 }
 
-.modal__submit-button:hover {
+.modal__submit-button_active {
+  background-color: rgba(47, 113, 229, 1) !important;
+  color: white;
+}
+
+.modal__submit-button:disabled {
+  opacity: 0.7;
 }
 
 .modal__close-button {
@@ -110,35 +116,47 @@ h2 {
   left: 425px;
   cursor: pointer;
 }
-.overlay {
+.modal__overlay {
+  display: none;
   background-color: #0000004d;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
+  display: flex; /* <-- always flex, always visible */
   justify-content: center;
   align-items: center;
-  /* width: 100%;
-  height: 578px; */
+  z-index: 1001;
+}
+
+.modal__overlay-active {
+   display: flex;
+  background-color: #0000004d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
 }
 
 @media (max-width: 400px) {
   .modal {
     position: fixed;
-    top: 70px;
+    top: 41px;
     left: 0;
     width: 100vw;
     height: 100vh;
     padding: 20px;
     gap: 12px;
-    background-color: #fff; /* add if not already */
-    z-index: 1000; /* ensure it sits above other elements */
+    background-color: #fff;
+    z-index: 1000;
     overflow-y: auto;
     border-radius: 20px 20px 0 0;
-
+    transform: none;
   }
 
   .modal input,
@@ -172,13 +190,15 @@ h2 {
   .modal__title {
     width: auto;
     height: auto;
-    font-size: 20px;
+    font-size: 24px;
+    margin-right: 183px;
   }
 
   .modal__form {
     color: rgba(47, 113, 229, 1);
     font-size: 12px;
     font-family: inter;
+    justify-content: unset;
   }
 
   h2 {
@@ -190,11 +210,11 @@ h2 {
   body {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* This locks background scroll */
+    overflow-x: hidden; /* This locks background scroll */
     height: 100%;
   }
 
-  .overlay {
+  .modal__overlay {
     height: 0;
   }
 }
@@ -296,7 +316,7 @@ h2 {
     overflow: hidden;
   }
 
-  .overlay {
+  .modal__overlay {
     background-color: #0000004d;
     position: fixed;
     top: 0;

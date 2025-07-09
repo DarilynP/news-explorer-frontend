@@ -17,6 +17,7 @@ import RegisterModal from "./components/Modals/RegisterModal.jsx";
 import CurrentUserContext from "./context/CurrentUserContext.jsx";
 import NewsCardList from "./components/NewsCard/NewsCardList.jsx";
 import SavedNews from "./components/SavedNews/SavedNews.jsx";
+import SuccessPopup from "./components/Modals/SuccessPopup";
 
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
@@ -36,6 +37,7 @@ function App() {
   const [showMoreCount, setShowMoreCount] = useState(3);
   const [showTooltip, setShowTooltip] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const handleSwitchToSignUp = () => setModalType("register");
   const handleSwitchToLogin = () => setModalType("login");
@@ -49,9 +51,15 @@ function App() {
 
   const handleCloseLogin = () => setIsLoginOpen(false);
 
-  const handleRegister = () => {
-    // setIsModalOpen(false);
-    setModalType("register");
+  const handleRegister = (data) => {
+    console.log("Registering new user:", data);
+    setIsLoggedIn(false); // User isn't logged in yet
+    setCurrentUser({
+      userName: data.name,
+      email: data.email,
+    });
+    setModalType(""); // Close Register Modal
+    setShowSuccessPopup(true); // Open Success Popup
   };
 
   const getKeywordFromArticle = (article) => {
@@ -105,13 +113,20 @@ function App() {
   };
 
   const handleSignIn = (data) => {
-    setIsLoggedIn(true);
-    setCurrentUser({
-      userName: "Darilyn",
-      email: "bleh",
-    });
-    // setIsModalOpen(false);
-    setModalType("");
+    console.log("handleSignIn called with data:", data);
+
+    if (data.email && data.password) {
+      console.log("Valid data, signing in...");
+      setIsLoggedIn(true);
+      setCurrentUser({
+        userName: data.userName || "Darilyn",
+        email: data.email,
+      });
+      setModalType("");
+    } else {
+      console.log("Missing email or password");
+      alert("Please enter both email and password.");
+    }
   };
 
   const handleSignOut = () => {
@@ -161,16 +176,11 @@ function App() {
     console.log("this is firing when my app.jsx is mounted");
     fetchArticles();
   }, []);
+  console.log("modalType in App.jsx:", modalType);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
-      <Router
-        basename={
-          import.meta.env.MODE === "production"
-            ? "/news-explorer-frontend"
-            : "/"
-        }
-      >
+      <Router basename="/news-explorer-frontend">
         <div className="app">
           <Routes>
             <Route
@@ -188,7 +198,6 @@ function App() {
                   {loading ? (
                     <Preloader />
                   ) : (
-                    // isLoggedIn && (
                     <NewsCardList
                       articles={visibleArticles}
                       onShowMore={handleShowMore}
@@ -199,8 +208,8 @@ function App() {
                       isSavedPage={false}
                       searchTerm={searchTerm}
                     />
-                    // )
                   )}
+
                   <About />
                 </>
               }
@@ -222,23 +231,30 @@ function App() {
 
           <Footer />
 
-          {/* {isModalOpen && modalType === "login" && ( */}
-          <LoginModal
-            isModalOpen={modalType === "login"}
-            onClose={handleCloseModal}
-            onSwitchToSignUp={handleSwitchToSignUp}
-            onSignIn={handleSignIn}
-          />
-          {/* )} */}
+          {modalType === "login" && (
+            <LoginModal
+              isModalOpen={true}
+              onClose={handleCloseModal}
+              onSwitchToSignUp={handleSwitchToSignUp}
+              onSignIn={handleSignIn}
+            />
+          )}
 
-          {/* {isModalOpen && modalType === "register" && ( */}
-          <RegisterModal
-            isModalOpen={modalType === "register"}
-            onClose={handleCloseModal}
-            onSwitchToLogin={handleSwitchToLogin}
-            onSubmit={handleRegister}
+          {modalType === "register" && (
+            <RegisterModal
+              isModalOpen={true}
+              onClose={handleCloseModal}
+              onSwitchToLogin={handleSwitchToLogin}
+              onSubmit={handleRegister}
+            />
+          )}
+          <SuccessPopup
+            isOpen={showSuccessPopup}
+            onClose={() => {
+              setShowSuccessPopup(false);
+              setModalType("login");
+            }}
           />
-          {/* )} */}
         </div>
       </Router>
     </CurrentUserContext.Provider>

@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   z-index: 1000;
-  position: absolute;
+  white-space: nowrap;
   cursor: pointer;
   background: url(../../assets/images/bg.png);
 }
@@ -17,8 +17,8 @@
   height: 24px;
   color: white;
   font-size: 20px;
-  margin-left: 100px;
-  margin-right: 400px;
+
+  margin-right: 450px;
 }
 
 .header__list {
@@ -80,10 +80,35 @@
   height: 48px;
 }
 
+.header__wrapper {
+  max-width: 1200px; /* Or whatever width you want */
+  margin: 0 auto; /* Centers the wrapper */
+  padding: 0 24px; /* Optional: space on sides for small screens */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
 .header__button-avatar {
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  border-radius: 1000px;
+  border: 1px solid white;
+  margin-left: 40px;
+  width: 172px;
+  height: 48px;
+  cursor: pointer;
+}
 
+.header__button-logout {
+  display: flex;
+  justify-content: center;
   background-image: url(../../assets/images/logout.png);
   background-repeat: no-repeat;
   background-position: right 12px center;
@@ -96,7 +121,6 @@
   background-color: transparent;
   color: white;
   border: 1px solid white;
-  margin-left: 40px;
   width: 172px;
   height: 48px;
   align-items: center;

@@ -24,6 +24,7 @@ function SavedNews({
   const uniqueKeywords = [...new Set(keywords)];
 
   return (
+    <section className="saved__news-wrapper">
     <section className="saved__news">
       {/* Header */}
       <header className="saved__news-header">
@@ -39,7 +40,7 @@ function SavedNews({
           <nav className={`saved__news-nav ${menuOpen ? "open" : ""}`}>
             <ul className="saved__news-nav-list">
               <li className="saved-news__nav-item">
-                <Link to="/" className="saved-news__nav-link">
+                <Link to="/" className="saved__news-nav_link">
                   Home
                 </Link>
               </li>
@@ -48,7 +49,7 @@ function SavedNews({
                   <li className="saved__news-nav-item">
                     <Link
                       to="/saved-news"
-                      className="saved-news__nav-link saved-news__nav-link_active"
+                      className="saved__news-nav_link saved__news-nav_link_active"
                     >
                       Saved News
                     </Link>
@@ -108,6 +109,7 @@ function SavedNews({
           />
         ))}
       </section>
+    </section>
     </section>
   );
 }

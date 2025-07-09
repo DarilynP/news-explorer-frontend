@@ -9,23 +9,40 @@ function ModalWithForm({
   onSwitchToSignUp,
   type = "default",
   isModalOpen,
+  isFormFilled,
 }) {
   console.log("ModalWithForm render, isModalOpen =", isModalOpen);
 
+  // Don’t render anything if modal is closed
   if (!isModalOpen) return null;
+  console.log("ModalWithForm render, isModalOpen =", isModalOpen);
+  console.log("ModalWithForm render, onSubmit =", onSubmit);
 
+  
   return (
-    <div className="overlay" onClick={onClose}>
+    <div
+      className={`modal__overlay ${isModalOpen ? "modal__overlay_active" : ""}`}
+      onClick={onClose}
+    >
       <div
-        className={`modal modal_type_${type}`} 
-        onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+        className={`modal modal_type_${type}`}
+        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
       >
         <form className="modal__form" onSubmit={onSubmit}>
           <h2 className="modal__title">{title}</h2>
           {children}
-          <button type="submit" className="modal__submit-button">
+
+          {/* Submit button */}
+          <button
+            type="submit"
+            className={`modal__submit-button ${
+              isFormFilled ? "modal__submit-button_active" : ""
+            }`}
+            // disabled={!isFormFilled} ← REMOVE THIS FOR TESTING
+          >
             {type === "register" ? "Sign Up" : "Sign In"}
           </button>
+
           {type === "login" && (
             <p className="modal__alt-link">
               or{" "}
@@ -39,9 +56,11 @@ function ModalWithForm({
             </p>
           )}
         </form>
-        <button className="modal__close-button" onClick={onClose}>
-      
-        </button>
+        <button
+          className="modal__close-button"
+          onClick={onClose}
+          aria-label="Close modal"
+        ></button>
       </div>
     </div>
   );

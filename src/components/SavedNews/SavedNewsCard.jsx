@@ -13,52 +13,51 @@ function SavedNewsCard({ article, onRemove }) {
     }, 20000);
   };
 
-  console.log("isHovered →", isHovered);
-  console.log("keyword", article.keyword);
-  console.log("article →", article);
-
-
   return (
-    <div className="saved-news-card">
-      <div className="saved-news-card__image-container">
+    <div className="saved__news-card">
+      <div className="saved__news-card-image-container">
         <img
-          className="saved-news-card__image"
+          className="saved__news-card-image"
           src={article.urlToImage}
           alt={article.title}
         />
 
-        {/* Tag + Remove */}
-        <div className="saved-news-card__container">
-          <div className="saved-news-card__keyword-tooltip">
+        <div className="saved__news-card-controls">
+          <div className="saved__news-card-keyword-tooltip">
             {article.keyword || "Default Category"}
           </div>
 
           <button
-            className="saved-news-card__remove-btn"
+            className="saved__news-card-remove-btn"
             onClick={handleRemove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            aria-label="Remove saved article"
           >
-            <img src={isHovered ? trashIconBlack : trashIcon} alt="Remove" />
+            <img
+              className="saved__news-card-remove-icon"
+              src={isHovered ? trashIconBlack : trashIcon}
+              alt="Remove"
+            />
           </button>
 
           {showTooltip && (
-            <div className="saved-news-card__tooltip">Remove from saved</div>
+            <div className="saved__news-card-tooltip">Remove from saved</div>
           )}
         </div>
       </div>
 
-      <div className="saved-news-card__info">
-        <p className="saved-news-card__date">
+      <div className="saved__news-card-info">
+        <p className="saved__news-card-date">
           {new Date(article.publishedAt).toLocaleDateString(undefined, {
             year: "numeric",
             month: "long",
             day: "numeric",
           })}
         </p>
-        <h3 className="saved-news-card__title">{article.title}</h3>
-        <p className="saved-news-card__description">{article.description}</p>
-        <p className="saved-news-card__source">{article.source?.name}</p>
+        <h3 className="saved__news-card-title">{article.title}</h3>
+        <p className="saved__news-card-description">{article.description}</p>
+        <p className="saved__news-card-source">{article.source?.name}</p>
       </div>
     </div>
   );

@@ -1,28 +1,36 @@
-.circle-preloader {
-  display: block;
-  width: 50px;
-  height: 50px;
-  border: 4px solid #444;
-  border-bottom-color: #888;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
+.preloader {
+  width:100%;
+  height: 282px;
+  
+  top: 576px;
   left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  animation: spin 0.75s infinite linear;
-  /* background: url(../../assets/images/preloader_img.png); */
+  background-color: rgba(245, 246, 247, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  opacity: 1;
+}
 
-.preloader__img {
-  width: 100px;
-  height: auto;
+.circle__preloader {
+  width: 74px;
+  height: 74px;
+  border: 1px solid rgba(182, 188, 191, 1);
+  border-top: 1px solid rgba(47, 113, 229, 1);
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
   margin-bottom: 16px;
 }
 
-
+h1 {
+  color: rgba(182, 188, 191, 1);
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  margin: 0;
 }
 
+/* Spinner Animation */
 @keyframes spin {
   100% {
     transform: rotate(360deg);

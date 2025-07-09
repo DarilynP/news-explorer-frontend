@@ -4,6 +4,12 @@
   padding: 2rem;
   text-align: center;
 }
+.app {
+  max-width: 1200px; /* or whatever width fits your design */
+  margin: 0 auto;    /* centers horizontally */
+  padding: 0 24px;   /* optional: adds spacing on sides for small screens */
+  box-sizing: border-box;
+}
 
 .logo {
   height: 6em;

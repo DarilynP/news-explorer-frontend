@@ -18,15 +18,16 @@ function MobileMenu({
   });
 
   return (
-    <div className={`${isOpen ? "overlay" : ""}`}>
-      <nav className={`mobile__menu ${isOpen ? "mobile__menu-open" : ""}`}>
+    <div className="modal__overlay-mobile">
+      <nav className="mobile__menu mobile__menu-open">
+        {" "}
         <div className="mobile__container">
           <h1 className="mobile__title">News Explorer</h1>
           <button className="mobile__menu-close" onClick={onClose} />
         </div>
         <ul className="mobile__menu-list">
           <li>
-            <Link to="/" className="mobile-menu__link" onClick={onClose}>
+            <Link to="/" className="mobile__menu-link" onClick={onClose}>
               Home
             </Link>
           </li>

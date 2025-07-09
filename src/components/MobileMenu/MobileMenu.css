@@ -40,13 +40,17 @@
   align-items: center;
 }
 
-.mobile-menu__link {
+.mobile__menu-link {
   color: white;
   font-size: 18px;
   text-decoration: none;
   padding: 10px 0;
 }
 
+.mobile__menu__link {
+  text-decoration: none;
+  color: white;
+}
 .mobile__menu-button {
   background-color: rgba(26, 27, 34, 1);
   color: white;
@@ -55,9 +59,9 @@
   cursor: pointer;
   width: 288px;
   height: 56px;
-  position: absolute;
-  top: 150px;
-  left: 16px;
+  position: relative;
+  top: 66px;
+  left: 0px;
   border-radius: 100px;
   border: 1px solid;
 }

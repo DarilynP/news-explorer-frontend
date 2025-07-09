@@ -7,18 +7,11 @@
   position: absolute;
 }
 
-/* .nav__button {
-  width: 152px;
-  height: 24px;
-  top: 31px;
-  margin-left: 1172px;
-  border-radius: 1000px;
-} */
-
 .nav__list {
   list-style: none;
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .nav__link {

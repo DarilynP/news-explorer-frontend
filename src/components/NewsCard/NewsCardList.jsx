@@ -16,11 +16,11 @@ function NewsCardList({
 
   if (searchTerm.trim() && noArticles) {
     return (
-      <section className="no-articles">
+      <section className="no__articles">
         <img
           src={nothing_found}
           alt="No articles found"
-          className="no-articles__image"
+          className="no__articles-image"
         />
       </section>
     );
@@ -31,29 +31,31 @@ function NewsCardList({
   }
 
   return (
-    <section className="News__Section">
-      <section className="results">
+    <section className="news__section">
+      <header className="results">
         <h3 className="results__title">Search results</h3>
-      </section>
-      <div className="news-card-list">
+      </header>
+
+      <ul className="news__card-list">
         {articles.map((article, index) => {
           const isSaved = savedArticles.some(
             (saved) => saved.url === article.url
           );
 
           return (
-            <NewsCard
-              key={index}
-              article={article}
-              isSaved={isSaved}
-              isLoggedIn={isLoggedIn}
-              onSave={onSave}
-              onRemove={onRemove}
-              isSavedPage={isSavedPage}
-            />
+            <li key={index} className="news__card-list_item">
+              <NewsCard
+                article={article}
+                isSaved={isSaved}
+                isLoggedIn={isLoggedIn}
+                onSave={onSave}
+                onRemove={onRemove}
+                isSavedPage={isSavedPage}
+              />
+            </li>
           );
         })}
-      </div>
+      </ul>
 
       {articles.length > 0 && !isSavedPage && (
         <div className="button__container">
