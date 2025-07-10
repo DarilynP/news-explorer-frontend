@@ -87,19 +87,16 @@ function Header({ isLoggedIn, onSignInClick, onSignOutClick, modalType }) {
 
       {/* Mobile dropdown menu */}
       <MobileMenu
-        isOpen={isMenuOpen}
+        isOpen={isMenuOpen} 
         isLoggedIn={isLoggedIn}
         onSignInClick={() => {
-          onSignInClick(); // triggers modal in App
-          setIsMenuOpen(false); // closes mobile menu
+          onSignInClick();
+          setIsMenuOpen(false);
         }}
         onSignOutClick={onSignOutClick}
         currentUser={currentUser}
         onClose={() => setIsMenuOpen(false)}
       />
-      {isLoginModalOpen && (
-        <LoginModal onClose={() => setIsLoginModalOpen(false)} />
-      )}
     </header>
   );
 }

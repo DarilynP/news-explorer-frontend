@@ -183,14 +183,15 @@ h3 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 24px;
+    padding: 0;
+    margin-bottom: 30px;
   }
   .news__section {
     overflow: hidden;
+    height: 654px;
   }
   .news__card {
     margin-left: 0;
-    max-width: 45%;
-    height: auto;
     width: 224px;
     height: 420px;
   }
@@ -239,7 +240,7 @@ h3 {
 
   .results__title {
     font-size: 32px;
-    margin: 0 0 32px 40px;
+    margin: 0 0 32px 67px;
     padding-top: 40px;
   }
 

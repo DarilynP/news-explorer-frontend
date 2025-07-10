@@ -78,16 +78,15 @@
     font-size: 48px;
     width: 480px;
     height: auto;
-    margin-top: 120px;
-    text-align: center;
+    text-align: left;
     margin-bottom: 24px;
   }
 
   .main__subheading {
-    font-size: 16px;
+    font-size: 18px;
     width: 480px;
     height: auto;
-    text-align: center;
+    text-align: left;
   }
 
   .main__p-wrapper {

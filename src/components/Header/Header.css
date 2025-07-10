@@ -83,7 +83,7 @@
 .header__wrapper {
   max-width: 1200px; /* Or whatever width you want */
   margin: 0 auto; /* Centers the wrapper */
-  padding: 0 24px; /* Optional: space on sides for small screens */
+
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -129,16 +129,14 @@
 @media screen and (max-width: 627px) {
   .header__container {
     height: 56px;
+    padding: 0;
   }
   .header__title {
-    margin: auto;
+    margin-right: 80px;
   }
   .header__button-avatar {
     display: none;
   }
-  /* .header .header__burger.header__burger_hidden {
-    display: none;
-  } */
 
   .header__burger {
     display: block;
@@ -218,8 +216,7 @@
 
   .header__title {
     font-size: 18px;
-    margin-left: 0;
-    margin-right: 0;
+    margin-right: 150px;
     width: auto;
   }
 

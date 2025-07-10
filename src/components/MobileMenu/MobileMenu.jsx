@@ -17,13 +17,27 @@ function MobileMenu({
     currentUser,
   });
 
+  if (!isOpen) return null;
+
   return (
     <div className="modal__overlay-mobile">
-      <nav className="mobile__menu mobile__menu-open">
-        {" "}
+      <nav
+        className={`mobile__menu ${
+          isOpen ? "mobile__menu-open" : "mobile__menu-closed"
+        }`}
+      >
         <div className="mobile__container">
           <h1 className="mobile__title">News Explorer</h1>
-          <button className="mobile__menu-close" onClick={onClose} />
+          <button
+            className="mobile__menu-close"
+            onClick={() => {
+              console.log("Close button clicked");
+              onClose();
+            }}
+            aria-label="Close menu"
+          >
+            <img src={closeIcon} alt="Close menu" />
+          </button>
         </div>
         <ul className="mobile__menu-list">
           <li>

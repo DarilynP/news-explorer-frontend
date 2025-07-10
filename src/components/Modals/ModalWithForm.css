@@ -146,7 +146,7 @@ h2 {
 @media (max-width: 400px) {
   .modal {
     position: fixed;
-    top: 41px;
+    top: 75px;
     left: 0;
     width: 100vw;
     height: 100vh;
@@ -223,8 +223,8 @@ h2 {
     position: fixed;
     width: 430px;
     height: 380px;
-    top: 207px;
-    left: 200px;
+    top: 0;
+    left: 0;
     padding: 32px 32px 40px 32px;
     border-radius: 16px;
     border: 2px solid #ccc;
