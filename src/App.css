@@ -1,16 +1,33 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin: 0;
+  padding: 0;
 }
-.app {
-  max-width: 1200px; /* or whatever width fits your design */
-  margin: 0 auto;    /* centers horizontally */
-  padding: 0 24px;   /* optional: adds spacing on sides for small screens */
+* {
   box-sizing: border-box;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: clip;
+}
+.app {
+  box-sizing: border-box;
+}
+.app__wrapper {
+  background-image: url(../src/assets/images/News_Explorer_2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
+}
+@media (max-width: 768px) {
+  .app__wrapper {
+    background-position: top; /* or adjust as needed like center top, 50% 20%, etc. */
+  }
+}
 .logo {
   height: 6em;
   padding: 1.5em;

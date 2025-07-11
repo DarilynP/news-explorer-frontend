@@ -10,6 +10,10 @@
   white-space: nowrap;
   cursor: pointer;
   background: url(../../assets/images/bg.png);
+  /* background-image: url(../../assets/images/News_Explorer_2.png); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80px;
 }
 
 .header__title {
@@ -17,18 +21,29 @@
   height: 24px;
   color: white;
   font-size: 20px;
-
   margin-right: 450px;
 }
 
-.header__list {
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__nav-list {
   list-style: none;
   display: flex;
   justify-content: space-between;
 }
 
+.header__nav-link {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
 .header__button-signin {
-  width: 176px;
+  width: 112px;
   height: 48px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -37,15 +52,13 @@
   letter-spacing: 0px;
   border-radius: 1000px;
   background-color: transparent;
-  color: white;
-  border: 1px solid white;
+  color: black;
+  /* border: 1px solid white; */
 }
 
 .header__button-home {
   width: 49px;
   height: 24px;
-  top: 30px;
-  left: 1069px;
 }
 
 .header__container {
@@ -73,21 +86,10 @@
   display: none !important;
 }
 
-.header__button-signin_saved-page {
-  border: 1px solid black;
-  color: black;
-  width: 112px;
-  height: 48px;
+.header__burger--modal-open {
+  display: none !important;
 }
 
-.header__wrapper {
-  max-width: 1200px; /* Or whatever width you want */
-  margin: 0 auto; /* Centers the wrapper */
-
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-}
 .header__button-avatar {
   display: flex;
   justify-content: center;
@@ -116,7 +118,6 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  letter-spacing: 0px;
   border-radius: 1000px;
   background-color: transparent;
   color: white;
@@ -124,6 +125,14 @@
   width: 172px;
   height: 48px;
   align-items: center;
+  margin-left: 20px;
+}
+
+.header__wrapper {
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 627px) {
@@ -131,9 +140,11 @@
     height: 56px;
     padding: 0;
   }
+
   .header__title {
     margin-right: 80px;
   }
+
   .header__button-avatar {
     display: none;
   }
@@ -141,12 +152,8 @@
   .header__burger {
     display: block;
   }
-  .nav__link {
-    display: block;
-  }
-  /* Mobile nav menu (dropdown) */
 
-  .nav {
+  .header__nav {
     display: none;
     position: absolute;
     top: 60px;
@@ -158,24 +165,23 @@
     z-index: 1000;
   }
 
-  .nav.nav_open {
+  .header__nav--open {
     display: block;
     background-color: rgba(26, 27, 34, 1);
     width: 288px;
     height: 230px;
   }
 
-  .nav__list {
+  .header__nav-list {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  .nav__link {
-    color: black;
+  .header__nav-link {
+    color: white;
     font-size: 18px;
     text-decoration: none;
     padding: 10px 0;
@@ -190,18 +196,12 @@
     border: none;
     border-radius: 4px;
   }
-  .header__button-avatar:not(.header__button-avatar--mobile) {
-    display: none;
-  }
-  .header__burger.modal-open {
-    display: none !important;
-  }
 }
+
 @media screen and (min-width: 628px) and (max-width: 1024px) {
   .header {
     background-size: cover;
     background-position: center;
-    position: relative;
     padding: 0 16px;
   }
 
@@ -211,58 +211,25 @@
     align-items: center;
     margin: 16px auto;
     padding: 0 16px;
-    height: auto;
   }
 
   .header__title {
     font-size: 18px;
     margin-right: 150px;
-    width: auto;
   }
 
-  .header__list {
+  .header__nav-list {
     display: flex;
     gap: 16px;
-    margin-left: auto;
   }
 
-  .header__button-home,
-  .header__button-signin,
-  .header__button-avatar {
-    font-size: 16px;
-    width: auto;
-    height: 40px;
-  }
-
-  .header__button-avatar {
-    display: flex;
-    margin-left: 16px;
-    background-position: right 8px center;
-    padding: 0 30px;
-    font-size: 16px;
-  }
-
-  .header__burger {
-    display: none !important; /* Hide burger menu on tablet */
-  }
-
-  .nav {
-    display: flex !important;
-    position: static;
-    flex-direction: row;
-    background-color: transparent;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  .nav__list {
-    flex-direction: row;
-    gap: 16px;
-  }
-
-  .nav__link {
+  .header__nav-link {
     color: white;
     font-size: 16px;
     padding: 0;
+  }
+
+  .header__burger {
+    display: none !important; 
   }
 }

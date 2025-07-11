@@ -1,8 +1,10 @@
 .main {
-  background-image: url(../../assets/images/News_Explorer_2.png);
+  /* background-image: url(../../assets/images/News_Explorer_2.png); */
   height: 576px;
   background-size: cover;
   background-repeat: no-repeat;
+  background-repeat: no-repeat;
+ 
 }
 
 .main__title {
@@ -32,12 +34,8 @@
   position: relative;
 }
 
-.app {
-  max-width: 1400px;
-  margin: 0 auto;
 
-  box-sizing: border-box;
-}
+
 
 @media screen and (max-width: 627px) {
   .main {
@@ -70,7 +68,7 @@
   .main {
     background-position: center;
     background-size: cover;
-    height: 576px;
+    height: 100%;
     overflow: hidden;
   }
 

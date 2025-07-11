@@ -18,6 +18,7 @@ import CurrentUserContext from "./context/CurrentUserContext.jsx";
 import NewsCardList from "./components/NewsCard/NewsCardList.jsx";
 import SavedNews from "./components/SavedNews/SavedNews.jsx";
 import SuccessPopup from "./components/Modals/SuccessPopup";
+import "./App.css";
 
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
@@ -188,13 +189,21 @@ function App() {
               element={
                 <>
                   <Navigation />
-                  <Main
-                    onSearch={handleSearchSubmit}
-                    isLoggedIn={isLoggedIn}
-                    onSignInClick={handleOpenLogin}
-                    onSignOutClick={handleSignOut}
-                    modalType={modalType}
-                  />
+                  <div className="app__wrapper">
+                    <Header
+                      isLoggedIn={isLoggedIn}
+                      onSignInClick={handleOpenLogin}
+                      onSignOutClick={handleSignOut}
+                      modalType={modalType}
+                    />
+                    <Main
+                      onSearch={handleSearchSubmit}
+                      isLoggedIn={isLoggedIn}
+                      onSignInClick={handleOpenLogin}
+                      onSignOutClick={handleSignOut}
+                      modalType={modalType}
+                    />
+                  </div>
                   {loading ? (
                     <Preloader />
                   ) : (

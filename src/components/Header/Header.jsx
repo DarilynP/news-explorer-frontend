@@ -39,7 +39,7 @@ function Header({ isLoggedIn, onSignInClick, onSignOutClick, modalType }) {
           <button
             className={`header__burger ${
               isMenuOpen ? "header__burger_hidden" : ""
-            } ${modalType ? "modal-open" : ""}`}
+            } ${modalType ? "header__burger--modal-open" : ""}`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -47,17 +47,17 @@ function Header({ isLoggedIn, onSignInClick, onSignOutClick, modalType }) {
           </button>
 
           {/* Desktop navigation */}
-          <nav className="nav">
-            <ul className="nav__list">
+          <nav className="header__nav">
+            <ul className="header__nav-list">
               <li>
-                <Link to="/" className="nav__link">
+                <Link to="/" className="header__nav-link">
                   Home
                 </Link>
               </li>
 
               {isLoggedIn && (
                 <li>
-                  <Link to="/saved-news" className="nav__link">
+                  <Link to="/saved-news" className="header__nav-link">
                     Saved News
                   </Link>
                 </li>
@@ -87,7 +87,7 @@ function Header({ isLoggedIn, onSignInClick, onSignOutClick, modalType }) {
 
       {/* Mobile dropdown menu */}
       <MobileMenu
-        isOpen={isMenuOpen} 
+        isOpen={isMenuOpen}
         isLoggedIn={isLoggedIn}
         onSignInClick={() => {
           onSignInClick();

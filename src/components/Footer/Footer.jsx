@@ -7,13 +7,22 @@ import github from "../../assets/images/github.png";
 function Footer() {
   return (
     <footer className="footer">
-      <p className="footer__copyright">© 2024 Supersite, Powered by News API</p>
+      <p className="footer__copyright">
+        © 2024 Supersite, Powered by News API
+      </p>
       <div className="footer__container">
-        <div className="logo__container">
+        <div className="footer__logo-container">
           <Link to="/" className="footer__link">
             Home
           </Link>
-          <p className="footer__tag">TripleTen</p>
+          <a
+            href="https://tripleten.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__tag"
+          >
+            TripleTen
+          </a>
         </div>
         <nav className="footer__nav">
           <a

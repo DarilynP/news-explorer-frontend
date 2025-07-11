@@ -1,65 +1,72 @@
-.About {
+.about {
   display: flex;
   justify-content: center;
   margin-top: 80px;
   margin-bottom: 80px;
 }
 
-.About__img {
+.about__img {
   width: 464px;
   height: 464px;
   border-radius: 1000px;
 }
 
-.About__Container {
+.about__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  margin-top: 40px;
+  margin-left: 50px;
 }
 
-.About__p {
-  margin-left: 56px;
-  width: 600px;
-  font-family: Roboto, sans-serif, arial;
-}
-
-.About__title {
+.about__title {
   text-align: center;
-}
-
-.About h2 {
   height: 46px;
-  font-family: Roboto Slab, serif;
+  font-family: "Roboto Slab", serif;
   font-size: 40px;
   font-weight: 400;
-  align-items: center;
   margin-top: 80px;
   margin-left: 56px;
 }
 
+.about__p {
+  width: 600px;
+  font-family: Roboto, sans-serif, Arial;
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: black;
+  width: 600px;
+  height: 46px;
+  font-family: "Roboto slab", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
 @media screen and (max-width: 627px) {
-  .About {
+  .about {
     flex-direction: column;
     align-items: center;
     gap: 40px;
   }
 
-  .About__img {
+  .about__img {
     width: 272px;
     height: 272px;
     margin-top: 24px;
   }
 
-  .About__Container {
+  .about__container {
     align-items: flex-start;
     text-align: left;
     width: 320px;
     padding-left: 16px;
   }
 
-  .About__p,
-  .About h2 {
+  .about__text,
+  .about__title {
     text-align: left;
     margin-left: 0;
     margin-top: 24px;
@@ -67,28 +74,29 @@
     width: 100%;
   }
 }
+
 @media screen and (min-width: 628px) and (max-width: 1024px) {
-  .About {
+  .about {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 32px;
-    padding: 40px 24px;
+    padding: 0px 24px;
+    margin-top: 60px;
   }
 
-  .About__img {
+  .about__img {
     width: 320px;
     height: 320px;
     border-radius: 50%;
   }
 
-  .About__Container {
+  .about__container {
     width: 100%;
     max-width: 420px;
     align-items: flex-start;
   }
 
-  .About__p {
+  .about__text {
     width: 100%;
     margin-left: 0;
     font-size: 16px;
@@ -97,15 +105,12 @@
     margin-top: 16px;
   }
 
-  .About h2 {
+  .about__title {
     width: 100%;
     font-size: 32px;
     margin-left: 0;
     margin-top: 0;
     margin-bottom: 16px;
-  }
-
-  .About__title {
     text-align: left;
   }
 }
