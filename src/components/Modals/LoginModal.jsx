@@ -7,22 +7,59 @@ function LoginModal({ onSignIn, onClose, onSwitchToSignUp, isModalOpen }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  if (!isModalOpen) return null;
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+  });
+
+  const validateEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value);
+  };
+
+  const validatePassword = (value) => {
+    return value.length >= 5; 
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    if (!validateEmail(value)) {
+      setErrors((prev) => ({ ...prev, email: "Enter a valid email address" }));
+    } else {
+      setErrors((prev) => ({ ...prev, email: "" }));
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+
+    if (!validatePassword(value)) {
+      setErrors((prev) => ({
+        ...prev,
+        password: "Password must be at least 5 characters",
+      }));
+    } else {
+      setErrors((prev) => ({ ...prev, password: "" }));
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(" handleSubmit fired in LoginModal!");
-    console.log("Email:", email);
-    console.log(" Password:", password);
-
-    if (onSignIn) {
-      console.log(" Calling onSignIn with:", { email, password });
+    if (!errors.email && !errors.password && email && password) {
       onSignIn({ email, password });
-    } else {
-      console.log(" No onSignIn prop provided!");
     }
   };
-  const isFormFilled = email.trim() !== "" && password.trim() !== "";
+
+  const isFormValid =
+    email.trim() !== "" &&
+    password.trim() !== "" &&
+    !errors.email &&
+    !errors.password;
+
+  if (!isModalOpen) return null;
 
   return (
     <ModalWithForm
@@ -32,33 +69,31 @@ function LoginModal({ onSignIn, onClose, onSwitchToSignUp, isModalOpen }) {
       onSubmit={handleSubmit}
       onSwitchToSignUp={onSwitchToSignUp}
       type="login"
-      isFormFilled={isFormFilled}
+      isFormFilled={isFormValid}
     >
-      <label className="form__label">
+      <label className="login__form-label">
         Email
         <input
           type="email"
           value={email}
           placeholder="Enter Email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-            console.log("Email changed:", e.target.value);
-          }}
+          onChange={handleEmailChange}
           required
         />
+        {errors.email && <span className="modal__error">{errors.email}</span>}
       </label>
-      <label className="form__label">
+      <label className="login__form-label--two">
         Password
         <input
           type="password"
           value={password}
           placeholder="Enter Password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-            console.log("Password changed:", e.target.value);
-          }}
+          onChange={handlePasswordChange}
           required
         />
+        {errors.password && (
+          <span className="modal__error">{errors.password}</span>
+        )}
       </label>
     </ModalWithForm>
   );

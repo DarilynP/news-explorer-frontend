@@ -10,20 +10,22 @@ function SearchForm({ onSearchSubmit }) {
   };
 
   return (
-    <div className="search__form-container">
-      <form className="search__form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Search news..."
-          className="search__form-input"
-        />
-        <button className="search__form-button" type="submit">
-          Search
-        </button>
-      </form>
-    </div>
+    <section className="search">
+      <div className="search__form-container">
+        <form className="search__form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Search news..."
+            className="search__form-input"
+          />
+          <button className="search__form-button" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </section>
   );
 }
 

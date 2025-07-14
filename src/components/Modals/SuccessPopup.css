@@ -24,10 +24,11 @@
   display: inline-block;
   margin-top: 12px;
   color: #007bff;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
   font-size: 18px;
   margin-right: 351px;
+  white-space: nowrap;
 }
 .popup__title {
   font-size: 24px;
@@ -36,11 +37,11 @@
   color: #000;
   background-color: transparent;
   margin: 0;
-  margin-top: 40px;
-  margin-right: 80px;
+  margin-top: 20px;
+
   white-space: normal;
   text-align: left;
-  margin-bottom: 15px;
+ 
 }
 
 .popup__close {
@@ -49,8 +50,8 @@
   cursor: pointer;
   /* color: #999; */
   position: absolute;
-  top: 600px;
-  right: 414px;
+  top: 633px;
+  right: 700px;
   width: 40px;
   height: 40px;
   background-color: transparent;

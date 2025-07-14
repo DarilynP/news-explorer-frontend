@@ -2,18 +2,100 @@ import React, { useState } from "react";
 import "./RegisterModal.css";
 import ModalWithForm from "./ModalWithForm";
 
-function RegisterModal({ onClose, onSubmit, isModalOpen }) {
+function RegisterModal({
+  onClose,
+  onSubmit,
+  isModalOpen,
+  onSwitchToLogin, // 👈 for switching back
+}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
 
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    username: "",
+  });
+
+  const validateEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value);
+  };
+
+  const validatePassword = (value) => {
+    return value.length >= 6; // Require at least 6 characters
+  };
+
+  const validateUsername = (value) => {
+    return value.trim().length >= 2; // Require at least 2 characters
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    if (!validateEmail(value)) {
+      setErrors((prev) => ({
+        ...prev,
+        email: "Enter a valid email address",
+      }));
+    } else {
+      setErrors((prev) => ({ ...prev, email: "" }));
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+
+    if (!validatePassword(value)) {
+      setErrors((prev) => ({
+        ...prev,
+        password: "Password must be at least 6 characters",
+      }));
+    } else {
+      setErrors((prev) => ({ ...prev, password: "" }));
+    }
+  };
+
+  const handleUsernameChange = (e) => {
+    const value = e.target.value;
+    setUsername(value);
+
+    if (!validateUsername(value)) {
+      setErrors((prev) => ({
+        ...prev,
+        username: "Username must be at least 2 characters",
+      }));
+    } else {
+      setErrors((prev) => ({ ...prev, username: "" }));
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ email, password, username });
-    console.log("Registering:", { email, password, username });
+    if (
+      !errors.email &&
+      !errors.password &&
+      !errors.username &&
+      email &&
+      password &&
+      username
+    ) {
+      onSubmit({ email, password, username });
+    }
   };
+
+  const isFormValid =
+    email.trim() !== "" &&
+    password.trim() !== "" &&
+    username.trim() !== "" &&
+    !errors.email &&
+    !errors.password &&
+    !errors.username;
+
   if (!isModalOpen) return null;
-  const isFormFilled = email.trim() !== "" && password.trim() !== "";
 
   return (
     <ModalWithForm
@@ -21,9 +103,9 @@ function RegisterModal({ onClose, onSubmit, isModalOpen }) {
       title="Sign Up"
       onClose={onClose}
       onSubmit={handleSubmit}
-      // className="modal__register"
+      onSwitchToLogin={onSwitchToLogin}
       type="register"
-      isFormFilled={isFormFilled}
+      isFormFilled={isFormValid}
     >
       <label className="modal__label">
         Email
@@ -31,32 +113,41 @@ function RegisterModal({ onClose, onSubmit, isModalOpen }) {
           type="email"
           value={email}
           placeholder="Enter Email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleEmailChange}
           required
           className="modal__input"
         />
+        {errors.email && <span className="modal__error">{errors.email}</span>}
       </label>
+
       <label className="modal__label">
         Password
         <input
           type="password"
           value={password}
           placeholder="Enter Password"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handlePasswordChange}
           required
           className="modal__input"
         />
+        {errors.password && (
+          <span className="modal__error">{errors.password}</span>
+        )}
       </label>
+
       <label className="modal__label">
         Username
         <input
           type="text"
           value={username}
           placeholder="Enter your username"
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={handleUsernameChange}
           required
           className="modal__input"
         />
+        {errors.username && (
+          <span className="modal__error">{errors.username}</span>
+        )}
       </label>
     </ModalWithForm>
   );

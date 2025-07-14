@@ -28,14 +28,22 @@
   margin-bottom: 13px;
   margin-top: 9px;
 }
+.modal__label{
+  margin-bottom: 10px;
+}
 
+.modal__error{
+  color:red;
+  font-size: 14px;
+  
+}
 .modal__form {
   width: 100%;
   height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  
   background-color: white;
   color: blue;
 }
@@ -82,7 +90,7 @@ h2 {
   background-color: #e6e8eb;
   color: #b6bcbf;
   margin-left: 3px;
-  margin-top: 39px;
+
   font-family: Roboto;
   font-weight: 500;
   border: none;

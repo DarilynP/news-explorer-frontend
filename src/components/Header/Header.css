@@ -21,7 +21,8 @@
   height: 24px;
   color: white;
   font-size: 20px;
-  margin-right: 450px;
+  margin-right: 650px;
+  margin-left: 100px;
 }
 
 .header__nav {
@@ -38,8 +39,14 @@
 .header__nav-link {
   color: white;
   font-size: 18px;
-  text-decoration: none;
-  margin-left: 20px;
+  text-decoration: none; 
+  border-bottom: 3px solid transparent; 
+  padding-bottom: 34px; 
+  
+}
+
+.header__nav-link:hover {
+  border-bottom: 3px solid #fff; /* underline appears on hover */
 }
 
 .header__button-signin {
@@ -230,6 +237,6 @@
   }
 
   .header__burger {
-    display: none !important; 
+    display: none !important;
   }
 }

@@ -2,8 +2,7 @@ import React from "react";
 import "./Main.css";
 import SearchForm from "../SearchForm/SearchForm";
 import "../SearchForm/SearchForm.css";
-
-function Main({ onSearch }) {
+function Main({ onSearch, children }) {
   return (
     <main className="main">
       <div className="main__p-wrapper">
@@ -14,6 +13,14 @@ function Main({ onSearch }) {
         </p>
         <SearchForm onSearchSubmit={onSearch} />
       </div>
+
+      {/* Other main content that should appear before About */}
+      <div className="main__content">
+        {/* For example, the NewsCardList is outside Main, but you could move it here */}
+      </div>
+
+      {/* Render About at the bottom of the main section */}
+      {children}
     </main>
   );
 }

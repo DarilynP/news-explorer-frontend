@@ -24,9 +24,7 @@ const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [modalType, setModalType] = useState("");
-  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
   const [loading, setLoading] = useState(false);
@@ -45,29 +43,17 @@ function App() {
   const handleCloseModal = () => setModalType("");
 
   const handleOpenLogin = () => {
-    console.log("Opening Login Modal");
     setModalType("login");
-    // setIsModalOpen(true);
   };
 
-  const handleCloseLogin = () => setIsLoginOpen(false);
-
   const handleRegister = (data) => {
-    console.log("Registering new user:", data);
-    setIsLoggedIn(false); // User isn't logged in yet
+    setIsLoggedIn(false);
     setCurrentUser({
       userName: data.name,
       email: data.email,
     });
-    setModalType(""); // Close Register Modal
-    setShowSuccessPopup(true); // Open Success Popup
-  };
-
-  const getKeywordFromArticle = (article) => {
-    // use the search term or fallback to source name
-    if (searchTerm) return searchTerm;
-    if (article.source?.name) return article.source.name;
-    return "Uncategorized";
+    setModalType("");
+    setShowSuccessPopup(true);
   };
 
   const handleSaveArticle = (article) => {
@@ -75,8 +61,6 @@ function App() {
       ...article,
       keyword: searchTerm || article.source?.name || "Uncategorized",
     };
-
-    console.log("Saving article:", articleWithKeyword);
 
     setSavedArticles((prev) => {
       if (prev.some((a) => a.url === articleWithKeyword.url)) return prev;
@@ -114,10 +98,7 @@ function App() {
   };
 
   const handleSignIn = (data) => {
-    console.log("handleSignIn called with data:", data);
-
     if (data.email && data.password) {
-      console.log("Valid data, signing in...");
       setIsLoggedIn(true);
       setCurrentUser({
         userName: data.userName || "Darilyn",
@@ -125,7 +106,6 @@ function App() {
       });
       setModalType("");
     } else {
-      console.log("Missing email or password");
       alert("Please enter both email and password.");
     }
   };
@@ -143,7 +123,6 @@ function App() {
   useEffect(() => {
     const handleEscKey = (event) => {
       if (event.key === "Escape") {
-        // setIsModalOpen(false);
         setModalType("");
       }
     };
@@ -156,28 +135,6 @@ function App() {
       window.removeEventListener("keydown", handleEscKey);
     };
   }, [modalType]);
-
-  useEffect(() => {
-    const fetchArticles = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
-        );
-        const data = await response.json();
-        setArticles(data.articles);
-        setVisibleArticles(data.articles.slice(0, 3));
-      } catch (error) {
-        console.error("Error fetching news:", error);
-        setError("Failed to load articles");
-      } finally {
-        setLoading(false);
-      }
-    };
-    console.log("this is firing when my app.jsx is mounted");
-    fetchArticles();
-  }, []);
-  console.log("modalType in App.jsx:", modalType);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
@@ -204,9 +161,10 @@ function App() {
                       modalType={modalType}
                     />
                   </div>
-                  {loading ? (
-                    <Preloader />
-                  ) : (
+
+                  {loading && <Preloader />}
+
+                  {!loading && searchTerm && visibleArticles.length > 0 && (
                     <NewsCardList
                       articles={visibleArticles}
                       onShowMore={handleShowMore}
@@ -257,6 +215,7 @@ function App() {
               onSubmit={handleRegister}
             />
           )}
+
           <SuccessPopup
             isOpen={showSuccessPopup}
             onClose={() => {

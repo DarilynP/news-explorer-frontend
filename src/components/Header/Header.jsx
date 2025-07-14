@@ -57,7 +57,7 @@ function Header({ isLoggedIn, onSignInClick, onSignOutClick, modalType }) {
 
               {isLoggedIn && (
                 <li>
-                  <Link to="/saved-news" className="header__nav-link">
+                  <Link to="/saved-news" className="header__nav-link header__nav-underline" >
                     Saved News
                   </Link>
                 </li>

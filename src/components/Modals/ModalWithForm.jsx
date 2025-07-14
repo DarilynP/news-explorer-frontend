@@ -7,6 +7,7 @@ function ModalWithForm({
   onClose,
   onSubmit,
   onSwitchToSignUp,
+  onSwitchToLogin,
   type = "default",
   isModalOpen,
   isFormFilled,
@@ -18,7 +19,6 @@ function ModalWithForm({
   console.log("ModalWithForm render, isModalOpen =", isModalOpen);
   console.log("ModalWithForm render, onSubmit =", onSubmit);
 
-  
   return (
     <div
       className={`modal__overlay ${isModalOpen ? "modal__overlay_active" : ""}`}
@@ -52,6 +52,18 @@ function ModalWithForm({
                 onClick={onSwitchToSignUp}
               >
                 Sign Up
+              </button>
+            </p>
+          )}
+          {type === "register" && (
+            <p className="modal__alt-link">
+              or{" "}
+              <button
+                type="button"
+                className="modal__alt-button"
+                onClick={onSwitchToLogin}
+              >
+                Sign In
               </button>
             </p>
           )}
