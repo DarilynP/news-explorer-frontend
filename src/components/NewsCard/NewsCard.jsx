@@ -16,6 +16,12 @@ function NewsCard({
   const { currentUser } = useContext(CurrentUserContext);
   const [showTooltip, setShowTooltip] = useState(false);
 
+  // Parse date and split it
+  const publishedDate = new Date(article.publishedAt);
+  const day = publishedDate.getDate();
+  const month = publishedDate.toLocaleString("default", { month: "long" });
+  const year = publishedDate.getFullYear();
+
   const handleSaveClick = () => {
     if (!isLoggedIn || !currentUser) {
       alert("Please log in to save article");
@@ -45,19 +51,26 @@ function NewsCard({
       )}
 
       {isSavedPage && showTooltip && (
-        <div className="news__card-tooltip">remove from saved </div>
+        <div className="news__card-tooltip">remove from saved</div>
       )}
 
       <div className="news__card-content">
+        <div className="news__card-date">
+          <span className="news__card-date-month">{month}</span>
+          <span className="news__card-date-day">{day},</span>
+          <span className="news__card-date-year">{year}</span>
+        </div>
+
         <h2 className="news__card-title">
           <a href={article.url} target="_blank" rel="noopener noreferrer">
             {article.title}
           </a>
         </h2>
+
         <p>{article.description?.slice(0, 100)}...</p>
+
         <div className="news__card-footer">
           <span>{article.source.name}</span>
-          <span>{new Date(article.publishedAt).toLocaleDateString()}</span>
         </div>
       </div>
 

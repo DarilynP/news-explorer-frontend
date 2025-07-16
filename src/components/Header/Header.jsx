@@ -46,7 +46,6 @@ function Header({ isLoggedIn, onSignInClick, onSignOutClick, modalType }) {
             ☰
           </button>
 
-          {/* Desktop navigation */}
           <nav className="header__nav">
             <ul className="header__nav-list">
               <li>
@@ -57,7 +56,10 @@ function Header({ isLoggedIn, onSignInClick, onSignOutClick, modalType }) {
 
               {isLoggedIn && (
                 <li>
-                  <Link to="/saved-news" className="header__nav-link header__nav-underline" >
+                  <Link
+                    to="/saved-news"
+                    className="header__nav-link header__nav-underline"
+                  >
                     Saved News
                   </Link>
                 </li>
@@ -85,7 +87,6 @@ function Header({ isLoggedIn, onSignInClick, onSignOutClick, modalType }) {
         </div>
       </div>
 
-      {/* Mobile dropdown menu */}
       <MobileMenu
         isOpen={isMenuOpen}
         isLoggedIn={isLoggedIn}

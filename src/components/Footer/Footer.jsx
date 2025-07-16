@@ -7,11 +7,11 @@ import github from "../../assets/images/github.png";
 function Footer() {
   return (
     <footer className="footer">
-      <p className="footer__copyright">
-        © 2024 Supersite, Powered by News API
-      </p>
-      <div className="footer__container">
-        <div className="footer__logo-container">
+      <p className="footer__copyright">© 2024 Supersite, Powered by News API</p>
+
+      <section className="footer__container">
+        {/* Navigation Links */}
+        <nav className="footer__nav-links">
           <Link to="/" className="footer__link">
             Home
           </Link>
@@ -23,8 +23,10 @@ function Footer() {
           >
             TripleTen
           </a>
-        </div>
-        <nav className="footer__nav">
+        </nav>
+
+        {/* Social Links */}
+        <nav className="footer__social">
           <a
             href="https://github.com/"
             target="_blank"
@@ -42,7 +44,7 @@ function Footer() {
             <img src={fb} alt="Facebook logo" className="footer__icon" />
           </a>
         </nav>
-      </div>
+      </section>
     </footer>
   );
 }

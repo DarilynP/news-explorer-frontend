@@ -3,7 +3,7 @@ import NewsCard from "./NewsCard";
 import nothing_found from "../../assets/images/nothing_found.png";
 
 function NewsCardList({
-  articles,
+  articles = [],
   onShowMore,
   onSave,
   onRemove,
@@ -12,7 +12,12 @@ function NewsCardList({
   isSavedPage,
   searchTerm = "",
 }) {
-  const noArticles = !articles || articles.length === 0;
+  // Filter articles based on searchTerm
+  const filteredArticles = articles.filter((article) =>
+    article.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const noArticles = filteredArticles.length === 0;
 
   if (searchTerm.trim() && noArticles) {
     return (
@@ -30,6 +35,8 @@ function NewsCardList({
     return null;
   }
 
+  console.log("searchTerm:", searchTerm, "filteredArticles:", filteredArticles);
+
   return (
     <section className="news">
       <header className="news__header">
@@ -37,7 +44,7 @@ function NewsCardList({
       </header>
 
       <ul className="news__list">
-        {articles.map((article, index) => {
+        {filteredArticles.map((article, index) => {
           const isSaved = savedArticles.some(
             (saved) => saved.url === article.url
           );
@@ -57,7 +64,7 @@ function NewsCardList({
         })}
       </ul>
 
-      {articles.length > 0 && !isSavedPage && (
+      {filteredArticles.length > 0 && !isSavedPage && (
         <div className="news__button-container">
           <button className="news__button" onClick={onShowMore}>
             Show More

@@ -6,10 +6,9 @@
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
- 
 }
 
-.main__title {
+.main__heading {
   font-family: Roboto Slab, serif;
   font-weight: 400;
   font-size: 60px;
@@ -17,6 +16,7 @@
   height: 128px;
   color: white;
   margin-bottom: 32px;
+  margin-top: 80px;
 }
 
 .main__subheading {
@@ -29,22 +29,18 @@
   /* height: 128px; */
 }
 
-.main__p-wrapper {
+.main__intro {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
 
-
-
-
 @media screen and (max-width: 627px) {
   .main {
     background-position: center;
     background-color: rgba(0, 0, 0, 0.3); /* fallback */
     background-color: #0000004d;
-
   }
 
   .main__title {
@@ -57,6 +53,17 @@
   .main__subheading {
     width: 285px;
     height: 72px;
+  }
+
+  .main__heading{
+    font-size: 36px;
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 30px;
+    text-align: left;
+    margin-left: 34px;
+    
+
   }
   .modal__overlay-mobile {
     background-color: #0000004d;
@@ -71,7 +78,6 @@
     background-position: center;
     background-size: cover;
     height: 100%;
- 
   }
 
   .main__title {
@@ -87,9 +93,14 @@
     width: 480px;
     height: auto;
     text-align: left;
+    white-space: nowrap;
+    margin-right: 123px;
+    margin-top: 30px;
   }
-
-  .main__p-wrapper {
+  .main__heading {
+    
+  }
+  .main__intro {
     align-items: center;
     justify-content: center;
   }

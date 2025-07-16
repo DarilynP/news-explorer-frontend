@@ -20,16 +20,16 @@ function MobileMenu({
   if (!isOpen) return null;
 
   return (
-    <div className="modal__overlay-mobile">
+    <div className="mobile-menu__overlay">
       <nav
-        className={`mobile__menu ${
-          isOpen ? "mobile__menu-open" : "mobile__menu-closed"
+        className={`mobile-menu ${
+          isOpen ? "mobile-menu--open" : "mobile-menu--closed"
         }`}
       >
-        <div className="mobile__container">
-          <h1 className="mobile__title">News Explorer</h1>
+        <header className="mobile-menu__header">
+          <h1 className="mobile-menu__title">News Explorer</h1>
           <button
-            className="mobile__menu-close"
+            className="mobile-menu__close-button"
             onClick={() => {
               console.log("Close button clicked");
               onClose();
@@ -38,17 +38,19 @@ function MobileMenu({
           >
             <img src={closeIcon} alt="Close menu" />
           </button>
-        </div>
-        <ul className="mobile__menu-list">
-          <li>
-            <Link to="/" className="mobile__menu-link" onClick={onClose}>
+        </header>
+
+        <ul className="mobile-menu__list">
+          <li className="mobile-menu__item">
+            <Link to="/" className="mobile-menu__link" onClick={onClose}>
               Home
             </Link>
           </li>
-          <li>
+
+          <li className="mobile-menu__item">
             {isLoggedIn ? (
               <button
-                className="mobile__menu-button"
+                className="mobile-menu__button"
                 onClick={() => {
                   onSignOutClick();
                   onClose();
@@ -59,7 +61,7 @@ function MobileMenu({
               </button>
             ) : (
               <button
-                className="mobile__menu-button"
+                className="mobile-menu__button"
                 onClick={() => {
                   onSignInClick();
                   onClose();
