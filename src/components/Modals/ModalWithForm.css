@@ -227,8 +227,6 @@ h2 {
     position: fixed;
     width: 430px;
     height: 380px;
-    top: 0;
-    left: 0;
     padding: 32px 32px 40px 32px;
     border-radius: 16px;
     border: 2px solid #ccc;
@@ -254,12 +252,10 @@ h2 {
 
   .modal__submit-button {
     width: 100%;
-    height: 56px;
+    height: 64px;
     border-radius: 50px;
     background-color: #e6e8eb;
     color: #b6bcbf;
-    margin-left: 6px;
-    margin-top: 32px;
     font-family: Roboto, sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -295,7 +291,7 @@ h2 {
     font-weight: 700;
     color: black;
     white-space: nowrap;
-    margin: 0;
+
   }
 
   h2 {
