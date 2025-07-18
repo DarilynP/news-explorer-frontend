@@ -29,6 +29,8 @@
   font-size: 18px;
   margin-right: 351px;
   white-space: nowrap;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 .popup__title {
   font-size: 24px;
@@ -48,10 +50,9 @@
   background-image: url(/news-explorer-frontend/src/assets/images/close.png);
   border: none;
   cursor: pointer;
-  /* color: #999; */
   position: absolute;
-  top: 633px;
-  right: 700px;
+  top: 619px;
+  right: 533px;
   width: 40px;
   height: 40px;
   background-color: transparent;

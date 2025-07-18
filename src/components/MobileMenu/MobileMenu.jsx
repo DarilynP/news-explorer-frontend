@@ -11,13 +11,7 @@ function MobileMenu({
   currentUser,
   onClose,
 }) {
-  console.log("MobileMenu props →", {
-    isOpen,
-    isLoggedIn,
-    currentUser,
-  });
-
-  if (!isOpen) return null;
+  if (!isOpen) return null; // ✅ Return nothing if menu isn't open
 
   return (
     <div className="mobile-menu__overlay">
@@ -57,7 +51,7 @@ function MobileMenu({
                   window.location.href = "/";
                 }}
               >
-                {currentUser.userName}
+                {currentUser?.userName || "Account"}
               </button>
             ) : (
               <button

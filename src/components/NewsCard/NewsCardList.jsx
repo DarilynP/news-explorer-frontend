@@ -19,7 +19,11 @@ function NewsCardList({
 
   const noArticles = filteredArticles.length === 0;
 
-  if (searchTerm.trim() && noArticles) {
+  console.log("articles:", articles);
+  console.log("filteredArticles:", filteredArticles);
+  console.log("noArticles:", noArticles);
+
+  if (articles.length === 0 || noArticles) {
     return (
       <section className="no-articles">
         <img
@@ -31,11 +35,6 @@ function NewsCardList({
     );
   }
 
-  if (noArticles) {
-    return null;
-  }
-
-  console.log("searchTerm:", searchTerm, "filteredArticles:", filteredArticles);
 
   return (
     <section className="news">
