@@ -7,7 +7,9 @@ import github from "../../assets/images/github.png";
 function Footer() {
   return (
     <footer className="footer">
-      <p className="footer__copyright">© 2024 Supersite, Powered by News API</p>
+      <p className="footer__copyright">
+        © 2024 Supersite, Powered by News API
+      </p>
 
       <section className="footer__container">
         {/* Navigation Links */}

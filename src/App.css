@@ -8,21 +8,26 @@
 
 html,
 body {
-  margin: 0 auto;
   padding: 0;
   height: 100%;
-  overflow-x: hidden;
- 
 }
 .app {
   box-sizing: border-box;
 }
+
+.about,
+.footer,
+.header,
+.main {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .app__wrapper {
   background-image: url(../src/assets/images/News_Explorer_2.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
- 
 }
 @media (max-width: 768px) {
   .app__wrapper {

@@ -19,11 +19,12 @@
   text-align: center;
   width: 430px;
   height: 182px;
+  position: absolute;
 }
 .popup__signin-link {
   display: inline-block;
   margin-top: 12px;
-  color: #007bff;
+  color: rgba(47, 113, 229, 1);
   text-decoration: none;
   cursor: pointer;
   font-size: 18px;
@@ -43,7 +44,6 @@
 
   white-space: normal;
   text-align: left;
- 
 }
 
 .popup__close {
@@ -51,8 +51,8 @@
   border: none;
   cursor: pointer;
   position: absolute;
-  top: 619px;
-  right: 533px;
+  top: -40px;
+  right: -40px;
   width: 40px;
   height: 40px;
   background-color: transparent;

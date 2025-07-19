@@ -1,6 +1,5 @@
 import React from "react";
 import NewsCard from "./NewsCard";
-import nothing_found from "../../assets/images/nothing_found.png";
 
 function NewsCardList({
   articles = [],
@@ -17,24 +16,11 @@ function NewsCardList({
     article.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const noArticles = filteredArticles.length === 0;
+  const noResults = searchTerm && filteredArticles.length === 0;
 
-  console.log("articles:", articles);
-  console.log("filteredArticles:", filteredArticles);
-  console.log("noArticles:", noArticles);
-
-  if (articles.length === 0 || noArticles) {
-    return (
-      <section className="no-articles">
-        <img
-          src={nothing_found}
-          alt="No articles found"
-          className="no-articles__image"
-        />
-      </section>
-    );
+  if (noResults) {
+    return <section className="no-articles"></section>;
   }
-
 
   return (
     <section className="news">

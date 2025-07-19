@@ -11,26 +11,19 @@ function MobileMenu({
   currentUser,
   onClose,
 }) {
-  if (!isOpen) return null; // ✅ Return nothing if menu isn't open
+  if (!isOpen) return null;
 
   return (
     <div className="mobile-menu__overlay">
-      <nav
-        className={`mobile-menu ${
-          isOpen ? "mobile-menu--open" : "mobile-menu--closed"
-        }`}
-      >
+      <nav className="mobile-menu">
         <header className="mobile-menu__header">
           <h1 className="mobile-menu__title">News Explorer</h1>
           <button
-            className="mobile-menu__close-button"
-            onClick={() => {
-              console.log("Close button clicked");
-              onClose();
-            }}
+            className="mobile__menu-close-button"
+            onClick={onClose}
             aria-label="Close menu"
           >
-            <img src={closeIcon} alt="Close menu" />
+            <img src={closeIcon} alt="Close menu" className="mobile__menu-close-button"/>
           </button>
         </header>
 
@@ -48,7 +41,6 @@ function MobileMenu({
                 onClick={() => {
                   onSignOutClick();
                   onClose();
-                  window.location.href = "/";
                 }}
               >
                 {currentUser?.userName || "Account"}

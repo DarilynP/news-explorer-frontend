@@ -1,11 +1,12 @@
 .login__form-label {
   font-size: 16px;
-  color: blue;
+  color: rgba(47, 113, 229, 1);
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-weight: 500;
   margin-bottom: 10px;
 }
 
 .login__form-label--two {
- margin-bottom: 20px;
+  margin-bottom: 20px;
+  color: rgba(47, 113, 229, 1);
 }

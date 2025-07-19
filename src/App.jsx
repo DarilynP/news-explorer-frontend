@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Navigation from "./components/Navigation/Navigation";
 import SearchForm from "./components/SearchForm/SearchForm";
@@ -190,6 +189,12 @@ function App() {
                     savedArticles={savedArticles}
                     onRemove={handleRemoveArticle}
                     isLoggedIn={isLoggedIn}
+                    currentUser={currentUser}
+                    onSignOutClick={handleSignOut}
+                    onSignInSuccess={(user) => {
+                      setIsLoggedIn(true);
+                      setCurrentUser(user);
+                    }}
                   />
                 </ProtectedRoute>
               }

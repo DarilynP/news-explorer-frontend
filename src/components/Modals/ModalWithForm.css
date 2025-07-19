@@ -43,7 +43,6 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-
   background-color: white;
   color: blue;
 }
@@ -62,7 +61,7 @@ h2 {
   font-weight: 900;
 }
 .modal__alt-link {
-  margin-left: 158px;
+  margin: 16px auto 0 auto;
   font-size: 14px;
   cursor: pointer;
   font-family: Inter, Arial, Helvetica, sans-serif;
@@ -83,7 +82,7 @@ h2 {
   border: none;
   background-color: transparent;
   font-size: 14px;
-  color: blue;
+  color: rgba(47, 113, 229, 1);
   cursor: pointer;
 }
 
@@ -180,7 +179,6 @@ h2 {
   }
 
   .modal__alt-link {
-    margin-left: 0;
     text-align: center;
   }
 
@@ -270,7 +268,7 @@ h2 {
     font-size: 14px;
     text-align: center;
     cursor: pointer;
-    color: blue;
+    color: rgba(47, 113, 229, 1);
   }
 
   .modal__close-button {
@@ -292,7 +290,6 @@ h2 {
     font-weight: 700;
     color: black;
     white-space: nowrap;
-
   }
 
   h2 {

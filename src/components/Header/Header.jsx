@@ -32,60 +32,52 @@ function Header({ isLoggedIn, onSignInClick, onSignOutClick, modalType }) {
 
   return (
     <header className="header">
-      <div className="header__wrapper">
-        <div className="header__container">
-          <h1 className="header__title">News Explorer</h1>
+      <h1 className="header__title">News Explorer</h1>
 
-          <button
-            className={`header__burger ${
-              isMenuOpen ? "header__burger_hidden" : ""
-            } ${modalType ? "header__burger--modal-open" : ""}`}
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            ☰
-          </button>
+      <button
+        className={`header__burger ${
+          isMenuOpen ? "header__burger_hidden" : ""
+        } ${modalType ? "header__burger--modal-open" : ""}`}
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+      >
+        ☰
+      </button>
 
-          <nav className="header__nav">
-            <ul className="header__nav-list">
-              <li>
-                <Link to="/" className="header__nav-link">
-                  Home
-                </Link>
-              </li>
+      <nav className="header__nav">
+        <ul className="header__nav-list">
+          <li>
+            <Link to="/" className="header__nav-link">
+              Home
+            </Link>
+          </li>
 
-              {isLoggedIn && (
-                <li>
-                  <Link
-                    to="/saved-news"
-                    className="header__nav-link header__nav-underline"
-                  >
-                    Saved News
-                  </Link>
-                </li>
-              )}
+          {isLoggedIn && (
+            <li>
+              <Link
+                to="/saved-news"
+                className="header__nav-link header__nav-underline"
+              >
+                Saved News
+              </Link>
+            </li>
+          )}
 
-              <li>
-                {isLoggedIn ? (
-                  <button
-                    className="header__button-logout"
-                    onClick={handleSignOut}
-                  >
-                    {currentUser?.userName || "User"}
-                  </button>
-                ) : (
-                  <button
-                    className="header__button-avatar"
-                    onClick={onSignInClick}
-                  >
-                    Sign In
-                  </button>
-                )}
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
+          <li>
+            {isLoggedIn ? (
+              <button className="header__button-logout" onClick={handleSignOut}>
+                {currentUser?.userName || "User"}
+              </button>
+            ) : (
+              <button className="header__button-avatar" onClick={onSignInClick}>
+                Sign In
+              </button>
+            )}
+          </li>
+        </ul>
+      </nav>
+      {/* </div> */}
+      {/* </div> */}
 
       <MobileMenu
         isOpen={isMenuOpen}
