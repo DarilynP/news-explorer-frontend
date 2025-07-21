@@ -1,34 +1,30 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import CurrentUserContext from "../../context/CurrentUserContext";
 import MobileMenu from "../MobileMenu/MobileMenu";
-import LoginModal from "../Modals/LoginModal";
 
-function Header({ isLoggedIn, onSignInClick, onSignOutClick, modalType }) {
+function Header({
+  isLoggedIn,
+  onSignInClick,
+  onSignOutClick,
+  modalType,
+  isMobileMenuOpen,
+  setIsMobileMenuOpen,
+}) {
   const { currentUser } = useContext(CurrentUserContext);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-
-  const openLoginModal = () => {
-    console.log("Opening login modal...");
-    setIsLoginModalOpen(true);
-  };
-
+  const location = useLocation();
+  // Toggle mobile menu open state using prop setter
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    console.log("Toggling menu from:", isMobileMenuOpen);
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const handleSignOut = () => {
     onSignOutClick();
-    setIsMenuOpen(false);
+    setIsMobileMenuOpen(false);
     window.location.href = "/";
   };
-  console.log("modalType inside Header:", modalType);
-
-  console.log("modalType:", modalType);
-  console.log("Header currentUser:", currentUser);
-  console.log("Header isLoggedIn:", isLoggedIn);
 
   return (
     <header className="header">
@@ -36,7 +32,7 @@ function Header({ isLoggedIn, onSignInClick, onSignOutClick, modalType }) {
 
       <button
         className={`header__burger ${
-          isMenuOpen ? "header__burger_hidden" : ""
+          isMobileMenuOpen ? "header__burger_hidden" : ""
         } ${modalType ? "header__burger--modal-open" : ""}`}
         onClick={toggleMenu}
         aria-label="Toggle menu"
@@ -76,19 +72,16 @@ function Header({ isLoggedIn, onSignInClick, onSignOutClick, modalType }) {
           </li>
         </ul>
       </nav>
-      {/* </div> */}
-      {/* </div> */}
 
+      {/* Mobile menu controlled by props */}
       <MobileMenu
-        isOpen={isMenuOpen}
+        key={location.pathname}
+        isOpen={isMobileMenuOpen}
         isLoggedIn={isLoggedIn}
-        onSignInClick={() => {
-          onSignInClick();
-          setIsMenuOpen(false);
-        }}
-        onSignOutClick={onSignOutClick}
+        onSignInClick={onSignInClick}
+        onSignOutClick={handleSignOut}
         currentUser={currentUser}
-        onClose={() => setIsMenuOpen(false)}
+        onClose={() => setIsMobileMenuOpen(false)}
       />
     </header>
   );

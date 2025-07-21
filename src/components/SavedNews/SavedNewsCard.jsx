@@ -57,7 +57,7 @@ function SavedNewsCard({ article, onRemove }) {
         </p>
         <h3 className="saved__news-card-title">{article.title}</h3>
         <p className="saved__news-card-description">{article.description}</p>
-        <p className="saved__news-card-source">{article.source?.name}</p>
+        <p className="news__card-footer">{article.source?.name}</p>
       </div>
     </div>
   );

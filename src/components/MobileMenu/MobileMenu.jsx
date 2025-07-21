@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import "./MobileMenu.css";
 import closeIcon from "../../assets/images/close.png";
 
@@ -10,9 +11,18 @@ function MobileMenu({
   onSignOutClick,
   currentUser,
   onClose,
+  goToSaveArticles,
 }) {
-  if (!isOpen) return null;
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  console.log("Pathname:", location.pathname);
+  console.log("isLoggedIn:", isLoggedIn);
 
+
+  console.log("MobileMenu open state:", isOpen);
+  if (!isOpen) return null;
+  
   return (
     <div className="mobile-menu__overlay">
       <nav className="mobile-menu">
@@ -23,7 +33,11 @@ function MobileMenu({
             onClick={onClose}
             aria-label="Close menu"
           >
-            <img src={closeIcon} alt="Close menu" className="mobile__menu-close-button"/>
+            <img
+              src={closeIcon}
+              alt="Close menu"
+              className="mobile__menu-close-button"
+            />
           </button>
         </header>
 
@@ -34,8 +48,22 @@ function MobileMenu({
             </Link>
           </li>
 
-          <li className="mobile-menu__item">
-            {isLoggedIn ? (
+          {isLoggedIn && location.pathname === "/" && (
+            <li className="mobile-menu__item">
+              <button
+                className="mobile-menu__button"
+                onClick={() => {
+                  navigate("/saved-news");
+                  onClose(); // close menu
+                }}
+              >
+                Saved Articles
+              </button>
+            </li>
+          )}
+
+          {isLoggedIn && location.pathname.startsWith("/saved-news") && (
+            <li className="mobile-menu__item">
               <button
                 className="mobile-menu__button"
                 onClick={() => {
@@ -43,9 +71,13 @@ function MobileMenu({
                   onClose();
                 }}
               >
-                {currentUser?.userName || "Account"}
+                Sign Out
               </button>
-            ) : (
+            </li>
+          )}
+
+          {!isLoggedIn && (
+            <li className="mobile-menu__item">
               <button
                 className="mobile-menu__button"
                 onClick={() => {
@@ -55,8 +87,8 @@ function MobileMenu({
               >
                 Sign In
               </button>
-            )}
-          </li>
+            </li>
+          )}
         </ul>
       </nav>
     </div>

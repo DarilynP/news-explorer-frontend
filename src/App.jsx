@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import Header from "./components/Header/Header";
 import Navigation from "./components/Navigation/Navigation";
 import SearchForm from "./components/SearchForm/SearchForm";
@@ -25,7 +30,6 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [modalType, setModalType] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
-
   const [loading, setLoading] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,7 +40,6 @@ function App() {
   const [showTooltip, setShowTooltip] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
-
   const handleSwitchToSignUp = () => setModalType("register");
   const handleSwitchToLogin = () => setModalType("login");
   const handleCloseModal = () => setModalType("");
@@ -111,6 +114,7 @@ function App() {
 
   const handleSignOut = () => {
     setIsLoggedIn(false);
+    setCurrentUser(null);
   };
 
   const handleShowMore = () => {
@@ -134,7 +138,7 @@ function App() {
       window.removeEventListener("keydown", handleEscKey);
     };
   }, [modalType]);
-
+  console.log(isMobileMenuOpen);
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
       <Router basename="/news-explorer-frontend">
@@ -151,7 +155,10 @@ function App() {
                       onSignInClick={handleOpenLogin}
                       onSignOutClick={handleSignOut}
                       modalType={modalType}
+                      isMobileMenuOpen={isMobileMenuOpen}
+                      setIsMobileMenuOpen={setIsMobileMenuOpen}
                     />
+
                     <Main
                       onSearch={handleSearchSubmit}
                       isLoggedIn={isLoggedIn}
