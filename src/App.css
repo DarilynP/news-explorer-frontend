@@ -10,9 +10,11 @@ html,
 body {
   padding: 0;
   height: 100%;
+  margin: 0 auto;
 }
 .app {
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .about,

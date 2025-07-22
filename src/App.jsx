@@ -23,12 +23,13 @@ import NewsCardList from "./components/NewsCard/NewsCardList.jsx";
 import SavedNews from "./components/SavedNews/SavedNews.jsx";
 import SuccessPopup from "./components/Modals/SuccessPopup";
 import "./App.css";
-
+import NothingFound from "./components/Preloader/NothingFound";
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [modalType, setModalType] = useState("");
+  const [modalType, setModalType] = useState(null);
+
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
@@ -148,23 +149,17 @@ function App() {
               path="/"
               element={
                 <>
-                  <Navigation />
+                  {/* <Navigation /> */}
                   <div className="app__wrapper">
-                    <Header
-                      isLoggedIn={isLoggedIn}
-                      onSignInClick={handleOpenLogin}
-                      onSignOutClick={handleSignOut}
-                      modalType={modalType}
-                      isMobileMenuOpen={isMobileMenuOpen}
-                      setIsMobileMenuOpen={setIsMobileMenuOpen}
-                    />
-
                     <Main
                       onSearch={handleSearchSubmit}
                       isLoggedIn={isLoggedIn}
                       onSignInClick={handleOpenLogin}
                       onSignOutClick={handleSignOut}
                       modalType={modalType}
+                      setModalType={setModalType}
+                      isMobileMenuOpen={isMobileMenuOpen}
+                      setIsMobileMenuOpen={setIsMobileMenuOpen}
                     />
                   </div>
 
@@ -181,6 +176,9 @@ function App() {
                       isSavedPage={false}
                       searchTerm={searchTerm}
                     />
+                  )}
+                  {!loading && searchTerm && visibleArticles.length === 0 && (
+                    <NothingFound />
                   )}
 
                   <About />
@@ -202,6 +200,9 @@ function App() {
                       setIsLoggedIn(true);
                       setCurrentUser(user);
                     }}
+                    isMobileMenuOpen={isMobileMenuOpen}
+                    setIsMobileMenuOpen={setIsMobileMenuOpen}
+                    modalType={modalType}
                   />
                 </ProtectedRoute>
               }

@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import CurrentUserContext from "../../context/CurrentUserContext";
 import MobileMenu from "../MobileMenu/MobileMenu";
+import closeIcon from "../../assets/images/close.png";
 
 function Header({
   isLoggedIn,
@@ -11,12 +12,13 @@ function Header({
   modalType,
   isMobileMenuOpen,
   setIsMobileMenuOpen,
+  setModalType,
 }) {
   const { currentUser } = useContext(CurrentUserContext);
   const location = useLocation();
-  // Toggle mobile menu open state using prop setter
+  const isSavedNewsPage = location.pathname === "/saved-news";
+
   const toggleMenu = () => {
-    console.log("Toggling menu from:", isMobileMenuOpen);
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
@@ -25,20 +27,33 @@ function Header({
     setIsMobileMenuOpen(false);
     window.location.href = "/";
   };
+  const onCloseModal = () => {
+    setModalType(null);
+  };
 
   return (
-    <header className="header">
+    <header className={`header ${isSavedNewsPage ? "header_saved-news" : ""}`}>
       <h1 className="header__title">News Explorer</h1>
 
-      <button
-        className={`header__burger ${
-          isMobileMenuOpen ? "header__burger_hidden" : ""
-        } ${modalType ? "header__burger--modal-open" : ""}`}
-        onClick={toggleMenu}
-        aria-label="Toggle menu"
-      >
-        ☰
-      </button>
+      {modalType ? (
+        <button
+          className="header__close"
+          onClick={onCloseModal}
+          aria-label="Close modal"
+        >
+          <img src={closeIcon} alt="Close" className="header__close-icon" />
+        </button>
+      ) : (
+        <button
+          className={`header__burger ${
+            isMobileMenuOpen ? "header__burger_hidden" : ""
+          }`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          ☰
+        </button>
+      )}
 
       <nav className="header__nav">
         <ul className="header__nav-list">
@@ -73,7 +88,6 @@ function Header({
         </ul>
       </nav>
 
-      {/* Mobile menu controlled by props */}
       <MobileMenu
         key={location.pathname}
         isOpen={isMobileMenuOpen}

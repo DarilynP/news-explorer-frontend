@@ -36,8 +36,7 @@ function NewsCard({
     }
   };
   return (
-    <li className="news__card"> {/* Use <li> for list item semantics within <ul> */}
-      {/* Image Container with proper border-radius clipping */}
+    <div className="news__card">
       <div className="news__card-image-container">
         {article.urlToImage && (
           <img
@@ -48,7 +47,7 @@ function NewsCard({
         )}
       </div>
 
-      {/* Optional: Keyword Tag */}
+   
       {article.keyword && (
         <span className="news__card-tag">{article.keyword}</span>
       )}
@@ -77,31 +76,29 @@ function NewsCard({
 
       {/* Card Content Area (Flex column for internal layout) */}
       <div className="news__card-content">
-        {/* Date */}
+    
         <div className="news__card-date">
           <span className="news__card-date-month">{month}</span>
           <span className="news__card-date-day">{day},</span>
           <span className="news__card-date-year">{year}</span>
         </div>
 
-        {/* Title */}
         <h2 className="news__card-title">
           <a href={article.url} target="_blank" rel="noopener noreferrer">
             {article.title}
           </a>
         </h2>
 
-        {/* Description */}
         <p className="news__card-description">
-          {article.description?.slice(0, 100)}... {/* Truncate in JS or rely solely on CSS line-clamp */}
+          {article.description?.slice(0, 100)}... 
         </p>
 
-        {/* Source / Footer (pushed to bottom by flex-grow on content) */}
+  
         <div className="news__card-footer">
           <span>{article.source.name}</span>
         </div>
       </div>
-    </li>
+    </div>
   );
 }
 

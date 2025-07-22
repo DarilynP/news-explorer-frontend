@@ -1,3 +1,4 @@
+
 .search__form {
   display: flex;
   align-items: center;
@@ -41,28 +42,7 @@
   margin-left: 12px;
   white-space: nowrap;
 }
-
-@media screen and (max-width: 627px) {
-  .search__form {
-    width: 288px;
-    height: 56px;
-    position: relative;
-    margin-top: 180px;
-  }
-
-  .search__form-button {
-    width: 288px;
-    height: 56px;
-    display: flex;
-    position: absolute;
-    bottom: -74px;
-    margin: 0;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-  }
-}
-@media screen and (min-width: 628px) and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .search__form-containter {
     justify-content: center;
   }
@@ -91,5 +71,25 @@
     margin-left: 12px;
     position: static;
     display: inline-block;
+  }
+}
+@media screen and (max-width: 627px) {
+  .search__form {
+    width: 288px;
+    height: 56px;
+    position: relative;
+
+  }
+
+  .search__form-button {
+    width: 288px;
+    height: 56px;
+    display: flex;
+    position: absolute;
+    bottom: -74px;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
   }
 }

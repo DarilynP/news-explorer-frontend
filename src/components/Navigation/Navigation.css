@@ -1,9 +1,9 @@
 .nav {
   font-family: Roboto Slab;
   font-weight: 700;
-  size: 20px;
+  font-size: 20px;
   line-height: 24px;
-  display: none;
+  display: block;
   position: absolute;
 }
 
@@ -55,4 +55,7 @@
   .header__burger {
     display: none;
   }
+}
+
+@media (max-width: 1024px) {
 }

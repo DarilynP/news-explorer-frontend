@@ -15,7 +15,6 @@
   align-items: center;
   height: 80px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-
 }
 
 .header__title {
@@ -87,7 +86,7 @@
   color: white;
   width: 24px;
   height: 24px;
-  display: none;
+  display: block;
   z-index: 1100;
 }
 
@@ -144,28 +143,57 @@
   justify-content: center;
 }
 
-.header__title {
-  width: 200px;
-  height: 24px;
+
+.header_saved-news {
   color: black;
-  font-size: 20px;
-  margin: auto 0;
-  font-family: "Roboto slab", Arial, Helvetica, sans-serif;
+  border-bottom: 2px solid rgba(209, 210, 214, 1);
+  align-items: center;
+}
+.header_saved-news .header__title {
+  font-weight: 700;
+  color: black;
 }
 
-
-.header--saved-news .header__title {
-
-  color: black;  
+.header_saved-news .header__nav-link,
+.header_saved-news .header__button-avatar,
+.header_saved-news .header__button-logout {
+  color: black;
+  font-weight: 400;
+  border-color: black;
+}
+.header_saved-news .header__burger {
+  display: block;
+  color: black;
+}
+.header__close-icon {
+  width: 24px;
+  height: 24px;
+}
+.header__close {
+  background: none;
+  border: none;
+  font-size: 24px; /* or match your burger icon size */
+  color: #000; /* adjust for light/dark backgrounds */
+  cursor: pointer;
 }
 
+.header_saved-news .header__close {
+  color: #fff; /* for dark header background */
+}
+
+.header--saved-news .header__nav-link:hover {
+  border-bottom: 3px solid black; /* underline on hover stays black */
+}
+
+.header--saved-news .header__button-avatar {
+  border: 1px solid black;
+}
 
 @media screen and (max-width: 627px) {
   .header--saved-news .header__title {
     margin-right: 60px;
   }
 }
-
 
 @media screen and (max-width: 627px) {
   .header__container {
@@ -175,15 +203,18 @@
 
   .header__title {
     margin-right: 60px;
+    font-size: 16px;
   }
 
   .header__button-avatar {
     display: none;
   }
-
-  .header__burger {
-    display: block;
+  .header__save-news {
   }
+
+  /* .header__burger {
+    display: block;
+  } */
 
   .header__nav {
     display: none;
@@ -230,7 +261,7 @@
   }
 }
 
-@media screen and (min-width: 628px) and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .header {
     background-size: cover;
     background-position: center;
@@ -247,7 +278,7 @@
 
   .header__title {
     font-size: 18px;
-    margin-right: 150px;
+    margin: 0 auto 0 0;
   }
 
   .header__nav-list {
@@ -258,10 +289,9 @@
   .header__nav-link {
     color: white;
     font-size: 16px;
-   
   }
 
-  .header__burger {
+  /* .header__burger {
     display: none !important;
-  }
+  } */
 }

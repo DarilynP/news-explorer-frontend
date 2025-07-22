@@ -26,7 +26,7 @@ function ModalWithForm({
     >
       <div
         className={`modal modal_type_${type}`}
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+        onClick={(e) => e.stopPropagation()} 
       >
         <form className="modal__form" onSubmit={onSubmit}>
           <h2 className="modal__title">{title}</h2>
@@ -38,7 +38,7 @@ function ModalWithForm({
             className={`modal__submit-button ${
               isFormFilled ? "modal__submit-button_active" : ""
             }`}
-            // disabled={!isFormFilled} ← REMOVE THIS FOR TESTING
+            
           >
             {type === "register" ? "Sign Up" : "Sign In"}
           </button>
