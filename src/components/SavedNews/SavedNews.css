@@ -21,7 +21,12 @@
 .saved__news-subheader {
   font-family: Roboto, Arial, sans-serif;
   color: rgba(26, 27, 34, 0.5);
-  font-size: 14px;
+  font-family: Roboto, sans-serif;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+letter-spacing: 0;
+
 }
 
 .saved__news-container {
@@ -83,29 +88,37 @@
   font-size: 18px;
 }
 
-.saved__news-nav-link_active:hover,
-.saved__news-nav-link:hover {
-  border-bottom-color: #000; /* show underline on hover */
+.saved__news-nav-link:hover,
+.saved__news-nav-link_active:hover {
+  border-bottom-color: #000;
 }
 
+
 .saved__news-nav-link_active {
-  padding: 25px;
-  border-bottom: 2px solid transparent; /* make the underline invisible by default */
+  border-bottom: 2px solid #000;
 }
+
 .saved__news-summary {
   font-size: 40px;
-  width: 336px;
+  width:100%;
+  max-width: 336px;
   height: 68px;
   font-weight: 400;
   margin: 0;
-  margin-bottom: 30px;
   font-family: Robot Slab, Arial, Helvetica, sans-serif;
+  line-height:34px;
+  
 }
 
 .saved__news-keywords {
-  font-size: 0.9rem;
   color: black;
   margin-top: 30px;
+  font-family: Roboto, sans-serif;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+letter-spacing: 0;
+
 }
 
 .saved__news-card-image {
@@ -293,23 +306,22 @@ text-overflow: ellipsis;
   justify-items: center;
 }
 
-.saved__news-nav_link {
+/* .saved__news-nav_link {
   color: black;
   text-decoration: none;
   margin-right: 60px;
-}
+} */
 
-.saved-news__nav-link_active {
+/* .saved-news__nav-link_active {
   color: black;
   text-decoration: none;
-}
+} */
 .saved__news-card-source {
-  color: rgba(182, 188, 191, 1); /* Match Figma */
+  color: rgba(182, 188, 191, 1); 
   font-family: "Roboto Slab", Arial, Helvetica, sans-serif;
-  font-size: 16px; /* Match Figma */
-  margin-top: auto; /* Pushes the footer to the bottom within the flex column */
-  /* Remove padding: 0 16px 16px; from here. Padding is handled by .news__card-content */
-  padding: 0; /* Reset any default padding if needed */
+  font-size: 16px; 
+  margin-top: auto; 
+  padding: 0; 
 }
 
 
@@ -389,7 +401,7 @@ text-overflow: ellipsis;
   .saved__news-card-image {
     width: 100%;
     height: 272px;
-    max-width: 224px;
+ 
   }
 
   .saved__news-card-title {
@@ -535,7 +547,7 @@ text-overflow: ellipsis;
   .saved__news-card-keyword-tooltip {
     width: 76px;
     height: 40px;
-    right: 143px;
+    right: 183px;
     padding: 0;
    
   }

@@ -4,6 +4,7 @@ import "./Header.css";
 import CurrentUserContext from "../../context/CurrentUserContext";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import closeIcon from "../../assets/images/close.png";
+import logoutIcon from "../../assets/images/logout.png";
 
 function Header({
   isLoggedIn,
@@ -65,10 +66,7 @@ function Header({
 
           {isLoggedIn && (
             <li>
-              <Link
-                to="/saved-news"
-                className="header__nav-link header__nav-underline"
-              >
+              <Link to="/saved-news" className="header__nav-link">
                 Saved News
               </Link>
             </li>

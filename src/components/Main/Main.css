@@ -16,6 +16,7 @@
   color: white;
   margin-bottom: 32px;
   margin-top: 80px;
+
 }
 
 .main__subheading {
@@ -65,7 +66,7 @@
     height: auto;
     text-align: left;
     margin-top: 30px;
-    margin-right: 20px;
+   
   }
 
   .main__intro {
@@ -83,7 +84,7 @@
   .main {
     background-position: center;
     background-color: #0000004d; /* semi-transparent fallback */
-    height:480px;
+    height: 480px;
   }
 
   .main__heading {
@@ -92,19 +93,17 @@
     margin-top: 30px;
     margin-bottom: 0;
     text-align: left;
-    margin-left: 19px;
+    padding-left: 16px;
   }
 
   .main__subheading {
     font-size: 18px;
     width: 285px;
     height: auto;
-    margin-left: 10px;
   }
 
   .main__intro {
     justify-content: unset;
-    padding: 0 16px;
   }
 
   .modal__overlay-mobile {
