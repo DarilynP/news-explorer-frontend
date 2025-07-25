@@ -166,7 +166,7 @@
   border-color: black;
 }
 .header_saved-news .header__burger {
-  display: none;
+  /* display: none; */
   color: black;
 }
 .header__close-icon {

@@ -93,13 +93,14 @@
     margin-top: 30px;
     margin-bottom: 0;
     text-align: left;
-    padding-left: 16px;
+  
   }
 
   .main__subheading {
     font-size: 18px;
     width: 285px;
     height: auto;
+    padding-left: 0;
   }
 
   .main__intro {

@@ -38,6 +38,7 @@ function MobileMenu({
           </header>
 
           <ul className="mobile-menu__list">
+            <div className="mobile-menu__links-wrapper">
             <li className="mobile-menu__list-item">
               <Link to="/" className="mobile-menu__link" onClick={onClose}>
                 Home
@@ -54,7 +55,9 @@ function MobileMenu({
                   Saved Articles
                 </Link>
               </li>
-            )}
+                 )}   
+              </div>
+         
 
             <li className="mobile-menu__list-item">
               {isLoggedIn ? (
