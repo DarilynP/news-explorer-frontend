@@ -26,6 +26,7 @@ import "./App.css";
 import NothingFound from "./components/Preloader/NothingFound";
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [modalType, setModalType] = useState(null);
