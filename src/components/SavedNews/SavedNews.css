@@ -532,7 +532,7 @@ text-overflow: ellipsis;
     box-sizing: border-box;
     background-color: #ffffff;
     overflow: visible; 
-    margin: 0 auto 16px; /
+    margin: 0 auto 16px; 
   }
 
   .saved__news-intro {
