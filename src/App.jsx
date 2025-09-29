@@ -26,7 +26,6 @@ import "./App.css";
 import NothingFound from "./components/Preloader/NothingFound";
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [modalType, setModalType] = useState(null);
@@ -74,6 +73,22 @@ function App() {
 
   const handleRemoveArticle = (article) => {
     setSavedArticles((prev) => prev.filter((a) => a.url !== article.url));
+  };
+
+  const fetchNews = async (term) => {
+    setLoading(true);
+    try {
+      const res = await fetch(`/api/news?q=${encodeURIComponent(term)}`);
+      if (!res.ok) throw new Error("Failed to fetch news");
+      const data = await res.json();
+      setArticles(data);
+      setVisibleArticles(data.slice(0, 3));
+    } catch (err) {
+      console.error("Error fetching news:", err);
+      setVisibleArticles([]);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleSearchSubmit = (term) => {
@@ -124,7 +139,7 @@ function App() {
     setVisibleArticles(articles.slice(0, nextCount));
     setShowMoreCount(nextCount);
   };
-
+  // escape key
   useEffect(() => {
     const handleEscKey = (event) => {
       if (event.key === "Escape") {
