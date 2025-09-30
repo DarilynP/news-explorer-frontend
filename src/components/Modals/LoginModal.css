@@ -1,0 +1,25 @@
+/* Base styles */
+.login__form-label {
+  font-size: 16px;
+  color: rgba(47, 113, 229, 1);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.login__form-label--two {
+  margin-bottom: 20px;
+  color: rgba(47, 113, 229, 1);
+}
+
+@media (max-width: 600px) {
+  .login__form-label {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .login__form-label--two {
+    margin-bottom: 16px;
+    font-size: 12px; 
+  }
+}

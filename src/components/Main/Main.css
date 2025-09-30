@@ -1,0 +1,117 @@
+/* === DESKTOP BASE STYLES === */
+.main {
+  height: 576px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+}
+
+.main__heading {
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 60px;
+  width: 608px;
+  height: 128px;
+  color: white;
+  margin-bottom: 32px;
+  margin-top: 80px;
+
+}
+
+.main__subheading {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-size: 18px;
+  width: 608px;
+  color: white;
+  margin: 0;
+}
+
+.main__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.modal__overlay-mobile {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 576px;
+  z-index: 1;
+}
+
+/* === TABLET STYLES (≤1024px) === */
+@media screen and (max-width: 1024px) {
+  .main {
+    background-position: center;
+    background-size: cover;
+    height: auto; /* adapt height to content */
+  }
+
+  .main__heading {
+    font-size: 48px;
+    width: 480px;
+    height: auto;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+
+  .main__subheading {
+    font-size: 18px;
+    width: 480px;
+    height: auto;
+    text-align: left;
+    margin-top: 30px;
+   
+  }
+
+  .main__intro {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal__overlay-mobile {
+    height: auto; /* adapt overlay height */
+  }
+}
+
+/* === MOBILE STYLES (≤627px) === */
+@media screen and (max-width: 627px) {
+  .main {
+    background-position: center;
+    background-color: #0000004d; /* semi-transparent fallback */
+    height: 480px;
+  }
+
+  .main__heading {
+    font-size: 36px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 0;
+    text-align: left;
+  
+  }
+
+  .main__subheading {
+    font-size: 18px;
+    width: 285px;
+    height: auto;
+    padding-left: 0;
+  }
+
+  .main__intro {
+    justify-content: unset;
+  }
+
+  .modal__overlay-mobile {
+    background-color: #0000004d;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    z-index: 1000;
+  }
+}

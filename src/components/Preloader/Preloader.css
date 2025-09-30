@@ -1,0 +1,36 @@
+.preloader {
+  width: 100%;
+  height: 282px;
+  left: 0;
+  background-color: rgba(245, 246, 247, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  opacity: 1;
+}
+
+.circle__preloader {
+  width: 74px;
+  height: 74px;
+  border: 1px solid rgba(182, 188, 191, 1);
+  border-top: 1px solid rgba(47, 113, 229, 1);
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+  margin-bottom: 16px;
+}
+
+h1 {
+  color: rgba(182, 188, 191, 1);
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

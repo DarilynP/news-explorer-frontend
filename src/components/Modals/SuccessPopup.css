@@ -1,0 +1,59 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  border-radius: 16px;
+}
+
+.popup__container {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  width: 430px;
+  height: 182px;
+  position: absolute;
+}
+.popup__signin-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: rgba(47, 113, 229, 1);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 351px;
+  white-space: nowrap;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+.popup__title {
+  font-size: 24px;
+  font-weight: 900;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  color: #000;
+  background-color: transparent;
+  margin: 0;
+  margin-top: 20px;
+
+  white-space: normal;
+  text-align: left;
+}
+
+.popup__close {
+  background-image: url(/news-explorer-frontend/src/assets/images/close.png);
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+}

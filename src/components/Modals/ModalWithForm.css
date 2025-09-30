@@ -1,0 +1,329 @@
+.modal {
+  position: fixed;
+  width: 430px;
+  height: 383px;
+  top: 50%;
+  left: 50%;
+  background-color: white;
+  border-radius: 16px;
+  padding: 24px;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 1001;
+  transform: translate(-50%, -50%);
+}
+
+.modal input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-bottom: 13px;
+  margin-top: 9px;
+}
+.modal__label {
+  margin-bottom: 10px;
+}
+
+.modal__error {
+  color: red;
+  font-size: 14px;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+.modal__form {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: blue;
+}
+h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: black;
+}
+.modal__title {
+  width: 76px;
+  height: 32px;
+  color: black;
+  white-space: nowrap;
+  margin-bottom: 22px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+}
+.modal__alt-link {
+  margin: 16px auto 0 auto;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: black;
+}
+
+.modal__input {
+  width: 358px;
+  height: 47px;
+  top: 295px;
+  left: 541px;
+  border: 1px solid;
+  box-sizing: border-box;
+}
+
+.modal__alt-button {
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  color: rgba(47, 113, 229, 1);
+  cursor: pointer;
+}
+
+.modal__submit-button {
+  width: 358px;
+  height: 64px;
+  border-radius: 100px;
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+  margin-left: 3px;
+
+  font-family: Roboto;
+  font-weight: 500;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.modal_type_register {
+  height: 483px;
+}
+
+.modal__submit-button_active {
+  background-color: rgba(47, 113, 229, 1) !important;
+  color: white;
+}
+
+.modal__submit-button:disabled {
+  opacity: 0.7;
+}
+
+.modal__close-button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: #999;
+  transition: color 0.3s ease;
+  border: none;
+  background-image: url(../../assets/images/close.png);
+  top: -45px;
+  left: 425px;
+  cursor: pointer;
+}
+.modal__overlay {
+  display: none;
+  background-color: #0000004d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex; /* <-- always flex, always visible */
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.modal__overlay-active {
+  display: flex;
+  background-color: #0000004d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* === TABLET STYLES (≤1024px) === */
+@media screen and (max-width: 1024px) {
+  .modal {
+    position: fixed;
+    width: 430px;
+    height: 380px;
+    padding: 32px 32px 40px 32px;
+    border-radius: 16px;
+    border: 2px solid #ccc;
+    background-color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1001;
+  }
+
+  .modal input,
+  .modal__input {
+    width: 100%;
+    height: 44px;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 16px;
+    margin-top: 12px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  .modal__submit-button {
+    width: 100%;
+    height: 64px;
+    border-radius: 50px;
+    background-color: #e6e8eb;
+    color: #b6bcbf;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .modal__alt-link {
+    margin-top: 20px;
+    margin-left: 0;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    color: rgba(47, 113, 229, 1);
+  }
+
+  .modal__close-button {
+    position: absolute;
+    top: -36px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    background-image: url("../../assets/images/close.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  .modal__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+    white-space: nowrap;
+  }
+
+  h2 {
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: black;
+    text-align: left;
+  }
+
+  .modal__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: blue;
+    font-family: Roboto, sans-serif;
+  }
+
+  .modal__overlay {
+    background-color: #0000004d;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+}
+
+/* === MOBILE STYLES (≤400px) === */
+@media (max-width: 400px) {
+  .modal {
+    position: fixed;
+    top: 75px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    gap: 12px;
+    background-color: #fff;
+    z-index: 1000;
+    overflow-y: auto;
+    border-radius: 20px 20px 0 0;
+    transform: none;
+  }
+
+  .modal input,
+  .modal__input,
+  .modal__submit-button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .modal__alt-link {
+    text-align: center;
+    margin: 0 auto;
+    align-items: center;
+    margin-top: 16px;
+  }
+
+  .modal__close-button {
+    top: -43px;
+    right: 10px;
+    left: auto;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-image: url("../../assets/images/close.png");
+  }
+
+  .modal__submit-button {
+    height: 50px;
+    font-size: 16px;
+    margin-top: 24px;
+  }
+
+  .modal__title {
+    width: auto;
+    height: auto;
+    font-size: 24px;
+    margin-right: 211px;
+  }
+
+  .modal__form {
+    color: rgba(47, 113, 229, 1);
+    font-size: 12px;
+    font-family: inter;
+    justify-content: unset;
+  }
+
+  h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .modal__overlay {
+    height: 0;
+  }
+}
